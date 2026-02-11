@@ -98,7 +98,7 @@ const getById = async (req, res, next) => {
 
         // Fetch associated students
         const [studentRows] = await db.query(`
-            SELECT s.id, u.first_name, u.last_name, u.email
+            SELECT s.id, u.first_name, u.last_name, u.email, s.date_of_birth
             FROM student_class_map scm
             JOIN students s ON scm.student_id = s.id
             JOIN users u ON s.user_id = u.id
@@ -616,4 +616,47 @@ const getTeacherClasses = async (req, res, next) => {
     }
 };
 
-module.exports = { getAll, getById, create, update, remove, getClassBySchoolId, assignStudent, getTeacherClasses };
+const removeStudent = async (req, res, next) => {
+    const connection = await db.getConnection();
+    try {
+        await connection.beginTransaction();
+        const { classId, studentId } = req.params;
+        const { id: userId, role_name: userRole } = req.user;
+
+        // Security Check: Principal and Teacher can only remove students within their own school.
+        if (userRole === 'principal' || userRole === 'teacher') {
+            const userTable = userRole === 'principal' ? 'principals' : 'teachers';
+            const [userRows] = await connection.query(`SELECT school_id FROM ${userTable} WHERE user_id = ?`, [userId]);
+            if (userRows.length === 0 || !userRows[0].school_id) {
+                await connection.rollback();
+                return sendError(res, 'You are not assigned to a school.', 403);
+            }
+            const schoolId = userRows[0].school_id;
+
+            // Verify the class belongs to the user's school
+            const [classCheck] = await connection.query('SELECT school_id FROM classes WHERE id = ?', [classId]);
+            if (classCheck.length === 0) {
+                await connection.rollback();
+                return sendError(res, 'Class not found.', 404);
+            } else if (classCheck[0].school_id !== schoolId) {
+                await connection.rollback();
+                return sendError(res, 'Access denied. Class not in your school.', 403);
+            }
+        }
+
+        // Delete from the mapping table
+        await connection.query('DELETE FROM student_class_map WHERE class_id = ? AND student_id = ?', [classId, studentId]);
+
+        await connection.commit();
+        res.status(204).send();
+
+    } catch (error) {
+        await connection.rollback();
+        logError("Remove Student from Class", error);
+        next(error);
+    } finally {
+        if (connection) connection.release();
+    }
+};
+
+module.exports = { getAll, getById, create, update, remove, getClassBySchoolId, assignStudent, getTeacherClasses, removeStudent };

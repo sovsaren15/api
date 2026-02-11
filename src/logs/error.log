@@ -3820,3 +3820,599 @@
     at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
     at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
 
+[2026-02-05 17:49:14] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-02-05 17:49:14] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-02-05 22:18:23] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-02-05 22:18:23] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-02-05 22:31:00] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:00] [GET /api/classes/57] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:00] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:00] [GET /api/classes/57] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:08] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:08] [GET /api/classes/58] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:08] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:08] [GET /api/classes/58] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:18] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:18] [GET /api/classes/58] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:18] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:18] [GET /api/classes/58] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:30] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:30] [GET /api/classes/57] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:30] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:30] [GET /api/classes/57] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:42] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:42] [GET /api/classes/57] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:42] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:42] [GET /api/classes/57] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:54] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:54] [GET /api/classes/58] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:54] [Get Class By ID] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-05 22:31:54] [GET /api/classes/58] Error: Unknown column 's.sex' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getById (D:\primary_school_attendance\api\src\controller\classes.controller.js:100:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-06 18:02:05] [Get All Students] Error: Unknown column 's.status' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\student.controller.js:51:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-06 18:02:05] [GET /api/students] Error: Unknown column 's.status' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\student.controller.js:51:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-06 18:37:12] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-02-06 18:38:39] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-02-06 18:40:53] [Create Student] Error: Duplicate entry 'saren@gmail.com' for key 'users.email_UNIQUE'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at createUser (D:\primary_school_attendance\api\src\controller\user.service.js:27:43)
+    at async create (D:\primary_school_attendance\api\src\controller\student.controller.js:116:24)
+
+[2026-02-06 18:40:53] [POST /api/students] Error: Duplicate entry 'saren@gmail.com' for key 'users.email_UNIQUE'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at createUser (D:\primary_school_attendance\api\src\controller\user.service.js:27:43)
+    at async create (D:\primary_school_attendance\api\src\controller\student.controller.js:116:24)
+
+[2026-02-10 10:07:25] [PUT /api/events/4] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-02-10 10:07:38] [PUT /api/events/4] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-02-10 10:13:50] [PUT /api/events/4] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-02-10 10:13:56] [PUT /api/events/4] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-02-10 10:14:57] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:98:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:14:57] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:98:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:18:07] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:100:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:18:07] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:100:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:19:27] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:100:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:19:27] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:100:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:50:05] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:104:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:50:05] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:104:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 10:50:54] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:104:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at Multipart.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:187:7)
+    at Multipart.emit (node:events:519:28)
+    at emitCloseNT (node:internal/streams/destroy:148:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+[2026-02-10 10:50:54] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:104:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at Multipart.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:187:7)
+    at Multipart.emit (node:events:519:28)
+    at emitCloseNT (node:internal/streams/destroy:148:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+[2026-02-10 10:57:13] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:108:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at Multipart.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:187:7)
+    at Multipart.emit (node:events:519:28)
+    at emitCloseNT (node:internal/streams/destroy:148:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+[2026-02-10 10:57:13] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:108:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at Multipart.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:187:7)
+    at Multipart.emit (node:events:519:28)
+    at emitCloseNT (node:internal/streams/destroy:148:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+[2026-02-10 11:09:06] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:115:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at Multipart.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:187:7)
+    at Multipart.emit (node:events:519:28)
+    at emitCloseNT (node:internal/streams/destroy:148:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+[2026-02-10 11:09:06] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:115:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at Multipart.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:187:7)
+    at Multipart.emit (node:events:519:28)
+    at emitCloseNT (node:internal/streams/destroy:148:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+
+[2026-02-10 11:10:07] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:115:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 11:10:07] [PUT /api/events/5] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:115:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 11:10:31] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:115:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 11:10:31] [PUT /api/events/5] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:115:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 11:26:32] [Update Event] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:127:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 11:26:32] [PUT /api/events/4] Error: Data too long for column 'image' at row 1
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at update (D:\primary_school_attendance\api\src\controller\events.controller.js:127:35)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at done (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:59:7)
+    at indicateDone (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:63:68)
+    at D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:176:11
+    at WriteStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\storage\disk.js:43:9)
+    at WriteStream.emit (node:events:531:35)
+    at finish (node:internal/streams/writable:955:10)
+
+[2026-02-10 19:07:49] [Get All Schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:49] [GET /api/schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:49] [Get All Schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:49] [GET /api/schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:56] [Get All Schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:56] [GET /api/schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:56] [Get All Schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:07:56] [GET /api/schools] Error: Unknown column 's.website' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getAll (D:\primary_school_attendance\api\src\controller\schools.controller.js:7:33)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:18:35] [Update School] Error: Unknown column 'website' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\schools.controller.js:199:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:18:35] [PUT /api/schools/3] Error: Unknown column 'website' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\schools.controller.js:199:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:18:54] [Update School] Error: Unknown column 'website' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\schools.controller.js:199:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-10 19:18:54] [PUT /api/schools/3] Error: Unknown column 'website' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\schools.controller.js:199:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 18:49:47] [PUT /api/events/5] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+

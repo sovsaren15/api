@@ -13,9 +13,12 @@ const authenticate = async (req, res, next) => {
 
     // Get user with role information
     const [users] = await db.query(
-      `SELECT u.*, r.name as role_name 
+      `SELECT u.*, r.name as role_name,
+       COALESCE(t.image_profile, s.image_profile) as image_profile
        FROM users u 
        JOIN roles r ON u.role_id = r.id 
+       LEFT JOIN teachers t ON u.id = t.user_id
+       LEFT JOIN students s ON u.id = s.user_id
        WHERE u.id = ?`,
       [decoded.userId],
     )

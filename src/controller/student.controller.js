@@ -9,7 +9,7 @@ const getAll = async (req, res, next) => {
         const baseQuery = `
             SELECT SQL_CALC_FOUND_ROWS DISTINCT
                 u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
-                s.date_of_birth, s.enrollment_date, s.school_id,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
                 sch.name as school_name
             FROM users u
             JOIN students s ON u.id = s.user_id
@@ -19,7 +19,8 @@ const getAll = async (req, res, next) => {
 
         const searchFields = ['u.first_name', 'u.last_name', 'u.email'];
         const allowedFilters = {
-            'scm.class_id': 'class_id'
+            'scm.class_id': 'class_id',
+            's.status': 'status'
         };
 
         const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
@@ -60,10 +61,17 @@ const getById = async (req, res, next) => {
     try {
         const { id } = req.params;
         const [rows] = await db.query(`
-            SELECT u.id, u.first_name, u.last_name, u.email, u.phone_number, u.address, s.date_of_birth, s.enrollment_date, s.school_id
+            SELECT 
+                u.id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                GROUP_CONCAT(c.name SEPARATOR ', ') as class_names,
+                GROUP_CONCAT(DISTINCT CONCAT(c.id, ':', c.name) SEPARATOR ',') as classes_info
             FROM users u
             JOIN students s ON u.id = s.user_id
+            LEFT JOIN student_class_map scm ON s.id = scm.student_id
+            LEFT JOIN classes c ON scm.class_id = c.id
             WHERE u.id = ?
+            GROUP BY u.id
         `, [id]);
 
         if (rows.length > 0) {
@@ -81,8 +89,19 @@ const create = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { first_name, last_name, email, password, phone_number, address, date_of_birth, enrollment_date } = req.body;
+        const { first_name, last_name, email, password, phone_number, address, date_of_birth, enrollment_date, status } = req.body;
+        
+        // Fix: Convert empty strings to null for date fields (FormData sends empty strings for empty inputs)
+        const dob = date_of_birth === '' ? null : date_of_birth;
+        const enrollment = enrollment_date === '' ? null : enrollment_date;
+
         let schoolIdForNewStudent = req.body.school_id; // Allow admin to specify
+
+        // Handle image upload
+        let image_profile = req.body.image_profile; // Fallback to URL if provided
+        if (req.file) {
+            image_profile = `uploads/${req.file.filename}`;
+        }
 
         const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
 
@@ -105,14 +124,18 @@ const create = async (req, res, next) => {
  
         // Step 2: Create the student-specific record
         await connection.query(
-            'INSERT INTO students (user_id, school_id, date_of_birth, enrollment_date) VALUES (?, ?, ?, ?)',
-            [userId, schoolIdForNewStudent, date_of_birth, enrollment_date]
+            'INSERT INTO students (user_id, school_id, date_of_birth, enrollment_date, image_profile, status) VALUES (?, ?, ?, ?, ?, ?)',
+            [userId, schoolIdForNewStudent, dob, enrollment, image_profile, status || 'active']
         );
 
         await connection.commit();
         sendSuccess(res, { id: userId, message: 'Student created successfully' }, 201);
     } catch (error) {
         await connection.rollback();
+        // Handle Duplicate Entry (Email already exists)
+        if (error.code === 'ER_DUP_ENTRY' || error.errno === 1062) {
+            return sendError(res, 'អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
         logError("Create Student", error);
         next(error);
     } finally {
@@ -125,16 +148,28 @@ const update = async (req, res, next) => {
     try {
         await connection.beginTransaction();
         const { id } = req.params;
-        const { first_name, last_name, phone_number, address, date_of_birth } = req.body;
+        const { first_name, last_name, phone_number, address, date_of_birth, enrollment_date, status } = req.body;
+
+        // Handle image upload
+        let image_profile = req.body.image_profile;
+        if (req.file) {
+            image_profile = `uploads/${req.file.filename}`;
+        }
 
         // Step 1: Update the generic user details
         await updateUser(connection, id, { first_name, last_name, phone_number, address });
 
         // Step 2: Update the student-specific details
-        if (date_of_birth !== undefined) {
+        const studentUpdates = {};
+        if (date_of_birth !== undefined) studentUpdates.date_of_birth = date_of_birth;
+        if (enrollment_date !== undefined) studentUpdates.enrollment_date = enrollment_date;
+        if (image_profile !== undefined) studentUpdates.image_profile = image_profile;
+        if (status !== undefined) studentUpdates.status = status;
+
+        if (Object.keys(studentUpdates).length > 0) {
             await connection.query(
-                'UPDATE students SET date_of_birth = ? WHERE user_id = ?',
-                [date_of_birth, id]
+                'UPDATE students SET ? WHERE user_id = ?',
+                [studentUpdates, id]
             );
         }
 
@@ -165,10 +200,115 @@ const remove = async (req, res, next) => {
     }
 };
 
+const getByTeacherId = async (req, res, next) => {
+    try {
+        const { teacherId } = req.params; // Treated as User ID
+
+        // Resolve User ID to Teacher ID and School ID
+        const [teacherRows] = await db.query('SELECT id, school_id FROM teachers WHERE user_id = ?', [teacherId]);
+        
+        if (teacherRows.length === 0) {
+            return sendError(res, 'Teacher not found', 404);
+        }
+        
+        const internalTeacherId = teacherRows[0].id;
+        const teacherSchoolId = teacherRows[0].school_id;
+
+        // Security Check
+        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+        
+        if (userRole === 'principal') {
+             const [principalRows] = await db.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
+             if (!principalRows.length || principalRows[0].school_id !== teacherSchoolId) {
+                 return sendError(res, 'Access denied. Teacher belongs to a different school.', 403);
+             }
+        } else if (userRole === 'teacher') {
+             if (req.user.id !== parseInt(teacherId)) {
+                 return sendError(res, 'Access denied. You can only view your own students.', 403);
+             }
+        } else if (userRole !== 'admin') {
+            return sendError(res, 'Access denied.', 403);
+        }
+
+        const query = `
+            SELECT DISTINCT
+                u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                sch.name as school_name
+            FROM users u
+            JOIN students s ON u.id = s.user_id
+            LEFT JOIN schools sch ON s.school_id = sch.id
+            JOIN student_class_map scm ON s.id = scm.student_id
+            JOIN teacher_class_map tcm ON scm.class_id = tcm.class_id
+            WHERE tcm.teacher_id = ?
+            ORDER BY u.last_name, u.first_name
+        `;
+        
+        const [rows] = await db.query(query, [internalTeacherId]);
+        sendSuccess(res, rows);
+
+    } catch (error) {
+        logError("Get Students By Teacher ID", error);
+        next(error);
+    }
+};
+
+const getByPrincipalId = async (req, res, next) => {
+    try {
+        const { principalId } = req.params; // Treated as User ID
+
+        const [principalRows] = await db.query('SELECT school_id FROM principals WHERE user_id = ?', [principalId]);
+        if (principalRows.length === 0) {
+            return sendError(res, 'Principal not found', 404);
+        }
+        const schoolId = principalRows[0].school_id;
+
+        if (!schoolId) {
+             return sendSuccess(res, []); 
+        }
+
+        // Security Check
+        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+        if (userRole === 'principal') {
+             if (req.user.id !== parseInt(principalId)) {
+                 return sendError(res, 'Access denied. You can only view your own school\'s students.', 403);
+             }
+        } else if (userRole === 'teacher') {
+             const [teacherRows] = await db.query('SELECT school_id FROM teachers WHERE user_id = ?', [req.user.id]);
+             if (!teacherRows.length || teacherRows[0].school_id !== schoolId) {
+                 return sendError(res, 'Access denied. You can only view students in your own school.', 403);
+             }
+        } else if (userRole !== 'admin') {
+             return sendError(res, 'Access denied.', 403);
+        }
+
+        const query = `
+            SELECT 
+                u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                sch.name as school_name
+            FROM users u
+            JOIN students s ON u.id = s.user_id
+            LEFT JOIN schools sch ON s.school_id = sch.id
+            WHERE s.school_id = ?
+            ORDER BY u.last_name, u.first_name
+        `;
+
+        const [rows] = await db.query(query, [schoolId]);
+        sendSuccess(res, rows);
+
+    } catch (error) {
+        logError("Get Students By Principal ID", error);
+        next(error);
+    }
+};
+
 module.exports = {
     getAll,
     getById,
     create,
     update,
     remove,
+    getByTeacherId,
+    getByPrincipalId
 };

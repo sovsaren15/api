@@ -57,7 +57,10 @@ const getAll = async (req, res, next) => {
 
 const getById = async (req, res, next) => {
     try {
-        const { id } = req.params;
+        let { id } = req.params;
+        if (id === 'me') {
+            id = req.user.id;
+        }
         const [rows] = await db.query(`
             SELECT 
                 u.id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
@@ -74,7 +77,7 @@ const getById = async (req, res, next) => {
             const userRole = req.user.role_name || req.user.role;
             const role = userRole ? userRole.toLowerCase() : '';
             // Security Check: Ensure principal can only view teachers in their own school.
-            if (role === 'principal' || role === 'teacher') {
+            if ((role === 'principal' || role === 'teacher') && id != req.user.id) {
                 const table = role === 'principal' ? 'principals' : 'teachers';
                 const [userRows] = await db.query(`SELECT school_id FROM ${table} WHERE user_id = ?`, [req.user.id]);
                 if (userRows.length === 0 || !userRows[0].school_id) {
@@ -95,7 +98,14 @@ const getById = async (req, res, next) => {
 };
 const getBySchoolId = async (req, res, next) => {
     try {
-        const { school_id } = req.params;
+        const school_id = req.params.school_id || req.params.id;
+
+        // Handle route conflict: if /teachers/me hits this endpoint instead of getById
+        if (school_id === 'me') {
+            req.params.id = 'me';
+            return getById(req, res, next);
+        }
+
         const userRole = req.user.role_name || req.user.role;
         const role = userRole ? userRole.toLowerCase() : '';
         
@@ -162,9 +172,9 @@ const create = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { 
+        let { 
             first_name, last_name, email, password, phone_number, address,
-            place_of_birth, sex, date_of_birth, experience, status, image_profile 
+            place_of_birth, sex, date_of_birth, experience, status, image_profile
         } = req.body;
 
         const userRole = req.user.role_name || req.user.role;
@@ -189,6 +199,11 @@ const create = async (req, res, next) => {
                 return sendError(res, 'school_id is required for an admin to create a teacher.', 400);
             }
             schoolIdForNewTeacher = req.body.school_id;
+        }
+
+        // Handle image upload
+        if (req.file) {
+            image_profile = `uploads/${req.file.filename}`;
         }
  
         // Step 1: Create the generic user record
@@ -217,11 +232,19 @@ const update = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { id } = req.params;
-        const { 
+        let { id } = req.params;
+        if (id === 'me') {
+            id = req.user.id;
+        }
+        let { 
             first_name, last_name, phone_number, address, 
             school_id, place_of_birth, sex, date_of_birth, experience, status, image_profile
         } = req.body;
+
+        // Handle image upload
+        if (req.file) {
+            image_profile = `uploads/${req.file.filename}`;
+        }
 
         const userRole = req.user.role_name || req.user.role;
         const role = userRole ? userRole.toLowerCase() : '';
@@ -327,6 +350,7 @@ const getTeacherDashboard = async (req, res, next) => {
             `SELECT 
                 t.id as teacher_id, -- This is the PK for the teachers table
                 t.school_id,
+                t.image_profile,
                 s.name as school_name,
                 s.logo as school_logo
              FROM teachers t
@@ -354,9 +378,9 @@ const getTeacherDashboard = async (req, res, next) => {
             [recentEvents]
         ] = await Promise.all([
             // Count distinct classes the teacher teaches in
-            db.query('SELECT COUNT(DISTINCT class_id) as count FROM study_schedules WHERE teacher_id = ?', [teacher_id]),
+            db.query('SELECT COUNT(DISTINCT class_id) as count FROM teacher_class_map WHERE teacher_id = ?', [teacher_id]),
             // Count distinct students in the classes the teacher teaches
-            db.query('SELECT COUNT(DISTINCT student_id) as count FROM student_class_map WHERE class_id IN (SELECT DISTINCT class_id FROM study_schedules WHERE teacher_id = ?)', [teacher_id]),
+            db.query('SELECT COUNT(DISTINCT student_id) as count FROM student_class_map WHERE class_id IN (SELECT class_id FROM teacher_class_map WHERE teacher_id = ?)', [teacher_id]),
             // Get today's classes for the teacher
             db.query(`
                 SELECT ss.start_time, ss.end_time, c.name as class_name, s.name as subject_name

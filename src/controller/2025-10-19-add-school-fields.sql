@@ -1,0 +1,6 @@
+-- Add new columns to schools table
+ALTER TABLE `schools`
+ADD COLUMN `logo` VARCHAR(255) DEFAULT NULL,
+ADD COLUMN `cover` VARCHAR(255) DEFAULT NULL,
+ADD COLUMN `website` VARCHAR(255) DEFAULT NULL,
+ADD COLUMN `description` TEXT DEFAULT NULL;

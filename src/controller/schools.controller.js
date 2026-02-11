@@ -4,17 +4,27 @@ const { sendSuccess, sendError } = require('./response.helper');
 
 const getAll = async (req, res, next) => {
     try {
-        const [rows] = await db.query(`
+        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+        let query = `
             SELECT 
-                s.id, s.name, s.address, s.phone_number, s.email, s.status, s.founded_date, s.school_level, s.logo, s.cover,
+                s.*,
                 CONCAT(u.first_name, ' ', u.last_name) as director_name,
                 (SELECT COUNT(*) FROM teachers t WHERE t.school_id = s.id) as total_teachers,
                 (SELECT COUNT(*) FROM students st WHERE st.school_id = s.id) as total_students
             FROM schools s
             LEFT JOIN principals p ON p.school_id = s.id
             LEFT JOIN users u ON u.id = p.user_id
-            ORDER BY s.name
-        `);
+        `;
+
+        const params = [];
+        if (userRole === 'principal') {
+            query += ` WHERE p.user_id = ?`;
+            params.push(req.user.id);
+        }
+
+        query += ` ORDER BY s.name`;
+
+        const [rows] = await db.query(query, params);
         sendSuccess(res, rows);
     } catch (error) {
         logError("Get All Schools", error);
@@ -56,10 +66,20 @@ const create = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { name, address, phone_number, email, status, founded_date, school_level, logo, cover, principal_id } = req.body;
+        let { name, address, phone_number, email, status, founded_date, school_level, logo, cover, principal_id, website, description } = req.body;
+
+        if (req.files) {
+            if (req.files.logo && req.files.logo.length > 0) {
+                logo = `uploads/${req.files.logo[0].filename}`;
+            }
+            if (req.files.cover && req.files.cover.length > 0) {
+                cover = `uploads/${req.files.cover[0].filename}`;
+            }
+        }
+
         const [result] = await connection.query(
-            'INSERT INTO schools (name, address, phone_number, email, status, founded_date, school_level, logo, cover) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [name, address, phone_number, email, status, founded_date, school_level, logo, cover]
+            'INSERT INTO schools (name, address, phone_number, email, status, founded_date, school_level, logo, cover, website, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [name, address, phone_number, email, status, founded_date, school_level, logo, cover, website, description]
         );
         const schoolId = result.insertId;
 
@@ -122,6 +142,24 @@ const update = async (req, res, next) => {
         await connection.beginTransaction();
         const { id } = req.params;
 
+        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+
+        // Security Check: Ensure principal can only update their own school.
+        if (userRole === 'principal') {
+            const [principalRows] = await connection.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
+            if (principalRows.length === 0 || !principalRows[0].school_id) {
+                await connection.rollback();
+                return sendError(res, 'You are not assigned to a school.', 403);
+            }
+            if (principalRows[0].school_id !== parseInt(id, 10)) {
+                await connection.rollback();
+                return sendError(res, 'Access denied. You can only update your own school.', 403);
+            }
+        } else if (userRole !== 'admin') {
+            await connection.rollback();
+            return sendError(res, 'Access denied.', 403);
+        }
+
         // First, verify the school exists. This is more robust.
         const [existingSchool] = await connection.query('SELECT id FROM schools WHERE id = ?', [id]);
         if (existingSchool.length === 0) {
@@ -129,9 +167,24 @@ const update = async (req, res, next) => {
             return sendError(res, 'School not found', 404);
         }
 
-        const { name, address, phone_number, email, status, founded_date, school_level, logo, cover, principal_id } = req.body;
+        let { name, address, phone_number, email, status, founded_date, school_level, logo, cover, principal_id, website, description } = req.body;
+
+        if (req.files) {
+            if (req.files.logo && req.files.logo.length > 0) {
+                logo = `uploads/${req.files.logo[0].filename}`;
+            }
+            if (req.files.cover && req.files.cover.length > 0) {
+                cover = `uploads/${req.files.cover[0].filename}`;
+            }
+        }
         
-        const updatableFields = { name, address, phone_number, email, status, founded_date, school_level, logo, cover };
+        // Principals cannot change principal_id or status
+        if (userRole === 'principal') {
+            principal_id = undefined;
+            status = undefined;
+        }
+        
+        const updatableFields = { name, address, phone_number, email, status, founded_date, school_level, logo, cover, website, description };
         const fieldsToUpdate = {};
 
         // Filter out undefined values to only update the fields that were actually provided
@@ -151,12 +204,10 @@ const update = async (req, res, next) => {
 
         // Handle principal assignment if principal_id is part of the request
         if (principal_id !== undefined) {
-            // The updatePrincipalAssignment function was flawed. Let's simplify and correct it here.
-            // First, remove any existing principal for this school.
-            await connection.query('DELETE FROM principals WHERE school_id = ?', [id]);
-            // Then, if a new principal_id is provided, insert the new assignment.
+            // Update principals table instead of deleting to preserve profile data
+            await connection.query('UPDATE principals SET school_id = NULL WHERE school_id = ?', [id]);
             if (principal_id) {
-                await connection.query('INSERT INTO principals (user_id, school_id) VALUES (?, ?)', [principal_id, id]);
+                await connection.query('UPDATE principals SET school_id = ? WHERE user_id = ?', [id, principal_id]);
             }
         }
 

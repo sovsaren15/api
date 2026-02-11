@@ -13,9 +13,12 @@ const login = async (req, res, next) => {
 
         // Find user by email and include their role name
         const [users] = await db.query(
-            `SELECT u.*, r.name as role_name 
+            `SELECT u.*, r.name as role_name,
+             COALESCE(t.image_profile, s.image_profile) as image_profile
              FROM users u 
              JOIN roles r ON u.role_id = r.id 
+             LEFT JOIN teachers t ON u.id = t.user_id
+             LEFT JOIN students s ON u.id = s.user_id
              WHERE u.email = ?`,
             [email]
         );
@@ -61,4 +64,40 @@ const validateToken = async (req, res) => {
     res.json({ user });
 };
 
-module.exports = { login, validateToken };
+const changePassword = async (req, res, next) => {
+    try {
+        const { current_password, new_password } = req.body;
+        const userId = req.user.id;
+
+        if (!current_password || !new_password) {
+            return res.status(400).json({ message: 'សូមបញ្ចូលពាក្យសម្ងាត់បច្ចុប្បន្ន និងពាក្យសម្ងាត់ថ្មី' });
+        }
+
+        // Get user to verify current password
+        const [users] = await db.query('SELECT * FROM users WHERE id = ?', [userId]);
+        if (users.length === 0) {
+            return res.status(404).json({ message: 'រកមិនឃើញអ្នកប្រើប្រាស់' });
+        }
+        const user = users[0];
+
+        // Verify current password
+        const isMatch = await bcrypt.compare(current_password, user.password);
+        if (!isMatch) {
+            return res.status(401).json({ message: 'ពាក្យសម្ងាត់បច្ចុប្បន្នមិនត្រឹមត្រូវ' });
+        }
+
+        // Hash new password
+        const hashedPassword = await bcrypt.hash(new_password, 10);
+
+        // Update password
+        await db.query('UPDATE users SET password = ? WHERE id = ?', [hashedPassword, userId]);
+
+        res.json({ message: 'ផ្លាស់ប្តូរពាក្យសម្ងាត់ជោគជ័យ' });
+
+    } catch (error) {
+        logError("Change Password", error);
+        next(error);
+    }
+};
+
+module.exports = { login, validateToken, changePassword };

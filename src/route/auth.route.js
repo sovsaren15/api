@@ -9,4 +9,7 @@ router.post('/login', authController.login);
 // GET /api/auth/validate-token
 router.get('/validate-token', authenticate, authController.validateToken);
 
+// POST /api/auth/change-password
+router.post('/change-password', authenticate, authController.changePassword);
+
 module.exports = router;

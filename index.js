@@ -21,6 +21,9 @@ const { errorHandler } = require('./src/middleware/error.middleware');
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
+// Serve static files from the uploads directory
+app.use('/uploads', express.static('C:/laragon/www/primary_school_attendance/uploads'));
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });

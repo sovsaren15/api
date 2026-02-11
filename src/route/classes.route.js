@@ -30,5 +30,8 @@ router.delete('/:id', authenticate, authorize('MANAGE_CLASSES'), classesControll
 // ==> ASSIGN a student to a class
 router.post('/:classId/students', authenticate, authorize('MANAGE_CLASSES'), classesController.assignStudent);
 
+// ==> REMOVE a student from a class
+router.delete('/:classId/students/:studentId', authenticate, authorize('MANAGE_CLASSES'), classesController.removeStudent);
+
 
 module.exports = router;    

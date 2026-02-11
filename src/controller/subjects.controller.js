@@ -59,7 +59,7 @@ const getById = async (req, res, next) => {
 
 const getBySchoolId = async (req, res, next) => {
     try {
-        const school_id = req.params.school_id || req.params.schoolId;
+        let school_id = req.params.school_id || req.params.schoolId;
         const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
 
         // Security check: Ensure principal/teacher can only access their own school's subjects
@@ -72,7 +72,10 @@ const getBySchoolId = async (req, res, next) => {
             }
             
             const userSchoolId = userRows[0].school_id;
-            if (parseInt(school_id, 10) !== userSchoolId) {
+            
+            if (school_id === 'me') {
+                school_id = userSchoolId;
+            } else if (parseInt(school_id, 10) !== userSchoolId) {
                 return sendError(res, 'Access denied. You can only view subjects from your assigned school.', 403);
             }
         } else if (userRole !== 'admin') {
