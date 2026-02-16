@@ -4,12 +4,15 @@ const { createUser, updateUser, ROLES } = require('./user.service');
 const { sendSuccess, sendError } = require('./response.helper');
 const QueryBuilder = require('./query.helper');
 
+// Helper to sanitize inputs (handle empty strings from FormData)
+const sanitize = (val) => (val === '' || val === 'null' || val === 'undefined' ? null : val);
+
 const getAll = async (req, res, next) => {
     try {
         const baseQuery = `
             SELECT SQL_CALC_FOUND_ROWS
                 u.id, u.first_name, u.last_name, u.email, u.phone_number, 
-                p.school_id, p.place_of_birth, p.experience, p.status,
+                p.school_id, p.place_of_birth, p.experience, p.status, p.image_profile,
                 s.name as school_name
             FROM users u
             JOIN principals p ON u.id = p.user_id
@@ -42,10 +45,14 @@ const getAll = async (req, res, next) => {
 const getById = async (req, res, next) => {
     try {
         const { id } = req.params;
+        if (id === 'unassigned') {
+            return getUnassigned(req, res, next);
+        }
+
         const [rows] = await db.query(`
             SELECT 
                 u.id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
-                p.school_id, p.place_of_birth, p.experience, p.status,
+                p.school_id, p.place_of_birth, p.experience, p.status, p.image_profile,
                 s.name as school_name
             FROM users u
             JOIN principals p ON u.id = p.user_id
@@ -66,15 +73,26 @@ const getById = async (req, res, next) => {
 
 const getMe = async (req, res, next) => {
     try {
+        if (!req.user || !req.user.id) {
+            return sendError(res, 'User not authenticated', 401);
+        }
         const principalUserId = req.user.id;
 
         const [principalDetails] = await db.query(
             `SELECT 
                 p.school_id,
+                p.place_of_birth,
+                p.experience,
+                p.status,
                 s.name as school_name,
                 u.first_name,
                 u.last_name,
-                u.email
+                u.email,
+                u.phone_number,
+                u.address,
+                p.image_profile,
+                p.sex,
+                p.date_of_birth
              FROM principals p
              JOIN users u ON p.user_id = u.id
              LEFT JOIN schools s ON p.school_id = s.id
@@ -87,6 +105,7 @@ const getMe = async (req, res, next) => {
         }
         sendSuccess(res, principalDetails[0]);
     } catch (error) {
+        console.error("Error in getMe:", error);
         logError("Get Principal's Own Profile (getMe)", error);
         next(error);
     }
@@ -97,20 +116,29 @@ const create = async (req, res, next) => {
     try {
         await connection.beginTransaction();
         const { first_name, last_name, email, password, phone_number, address, school_id, place_of_birth, experience, status } = req.body;
+
+        let image_profile = null;
+        if (req.file) {
+            image_profile = `uploads/${req.file.filename}`;
+        }
  
         // Step 1: Create the generic user record
-        const userId = await createUser(connection, { first_name, last_name, email, password, phone_number, address }, ROLES.PRINCIPAL);
+        const userId = await createUser(connection, { first_name, last_name, email, password, phone_number: sanitize(phone_number), address: sanitize(address) }, ROLES.PRINCIPAL);
  
         // Step 2: Create the principal-specific record
         await connection.query(
-            'INSERT INTO principals (user_id, school_id, place_of_birth, experience, status) VALUES (?, ?, ?, ?, ?)',
-            [userId, school_id, place_of_birth, experience, status || 'active']
+            'INSERT INTO principals (user_id, school_id, place_of_birth, experience, status, image_profile) VALUES (?, ?, ?, ?, ?, ?)',
+            [userId, sanitize(school_id), sanitize(place_of_birth), experience || 0, status || 'active', image_profile]
         );
 
         await connection.commit();
         sendSuccess(res, { id: userId, message: 'Principal created successfully' }, 201);
     } catch (error) {
         await connection.rollback();
+        // Handle Duplicate Entry (Email already exists)
+        if (error.code === 'ER_DUP_ENTRY' || error.errno === 1062) {
+            return sendError(res, 'អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
         logError("Create Principal", error);
         next(error);
     } finally {
@@ -122,18 +150,44 @@ const update = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { id } = req.params;
-        const { first_name, last_name, phone_number, address, school_id, place_of_birth, experience, status } = req.body;
+        let { id } = req.params;
+        if (id === 'me') {
+            id = req.user.id;
+        }
+        const { first_name, last_name, phone_number, address, school_id, place_of_birth, experience, status, sex, date_of_birth } = req.body;
+
+        let image_profile;
+        if (req.file) {
+            image_profile = `uploads/${req.file.filename}`;
+        }
 
         // Step 1: Update the generic user details
-        await updateUser(connection, id, { first_name, last_name, phone_number, address });
+        // We construct the object manually for user table fields
+        const userFields = { first_name, last_name, phone_number: sanitize(phone_number), address: sanitize(address) };
+
+        // Filter out undefined values
+        const finalUserFields = {};
+        for (const key in userFields) {
+            if (userFields[key] !== undefined) finalUserFields[key] = userFields[key];
+        }
+
+        if (Object.keys(finalUserFields).length > 0) {
+            await connection.query('UPDATE users SET ? WHERE id = ?', [finalUserFields, id]);
+        }
 
         // Step 2: Update the principal-specific details
         const principalFieldsToUpdate = {};
-        if (school_id !== undefined) principalFieldsToUpdate.school_id = school_id;
-        if (place_of_birth !== undefined) principalFieldsToUpdate.place_of_birth = place_of_birth;
+        // Only allow updating school_id and status if not updating 'me' (Admin action)
+        if (req.params.id !== 'me') {
+            if (school_id !== undefined) principalFieldsToUpdate.school_id = sanitize(school_id);
+            if (status !== undefined) principalFieldsToUpdate.status = status;
+        }
+        
+        if (place_of_birth !== undefined) principalFieldsToUpdate.place_of_birth = sanitize(place_of_birth);
         if (experience !== undefined) principalFieldsToUpdate.experience = experience;
-        if (status !== undefined) principalFieldsToUpdate.status = status;
+        if (sex !== undefined) principalFieldsToUpdate.sex = sex;
+        if (date_of_birth !== undefined) principalFieldsToUpdate.date_of_birth = sanitize(date_of_birth);
+        if (image_profile) principalFieldsToUpdate.image_profile = image_profile;
 
         if (Object.keys(principalFieldsToUpdate).length > 0) {
             await connection.query(

@@ -2,37 +2,52 @@ const db = require('../config/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { logError } = require('../config/service');
+const { updateUser } = require('./user.service');
 
 const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.status(400).json({ message: 'Email and password are required.' });
+            return res.status(400).json({ message: 'សូមបញ្ចូលអ៊ីមែល និងពាក្យសម្ងាត់' });
         }
 
         // Find user by email and include their role name
         const [users] = await db.query(
             `SELECT u.*, r.name as role_name,
-             COALESCE(t.image_profile, s.image_profile) as image_profile
+             COALESCE(t.image_profile, s.image_profile, p.image_profile) as image_profile,
+             COALESCE(t.status, s.status, p.status) as status,
+             COALESCE(t.school_id, s.school_id, p.school_id) as school_id,
+             sch.status as school_status
              FROM users u 
              JOIN roles r ON u.role_id = r.id 
              LEFT JOIN teachers t ON u.id = t.user_id
              LEFT JOIN students s ON u.id = s.user_id
+             LEFT JOIN principals p ON u.id = p.user_id
+             LEFT JOIN schools sch ON sch.id = COALESCE(t.school_id, s.school_id, p.school_id)
              WHERE u.email = ?`,
             [email]
         );
 
         if (users.length === 0) {
-            return res.status(401).json({ message: 'Invalid credentials.' });
+            return res.status(401).json({ message: 'អ៊ីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ' });
         }
 
         const user = users[0];
 
+        if (user.status === 'inactive') {
+            return res.status(403).json({ message: 'គណនីរបស់អ្នកត្រូវបានផ្អាកជាបណ្តោះអាសន្ន' });
+        }
+
+        // Check if user belongs to a school (Principal, Teacher, Student) and if that school is valid
+        if ((user.role_name || '').toLowerCase() !== 'admin' && (!user.school_id || !user.school_status || user.school_status !== 'active')) {
+            return res.status(403).json({ message: 'សាលារបស់អ្នកត្រូវបានលុប ឬផ្អាកដំណើរការ។ សូមទាក់ទងអ្នកគ្រប់គ្រង។' });
+        }
+
         // Compare password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(401).json({ message: 'Invalid credentials.' });
+            return res.status(401).json({ message: 'អ៊ីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ' });
         }
 
         // Create JWT payload
@@ -47,7 +62,7 @@ const login = async (req, res, next) => {
         // Don't send password back to the client
         delete user.password;
 
-        res.json({ message: 'Login successful', token, user });
+        res.json({ message: 'ចូលប្រើប្រាស់បានជោគជ័យ', token, user });
 
     } catch (error) {
         logError("User Login", error);
@@ -100,4 +115,29 @@ const changePassword = async (req, res, next) => {
     }
 };
 
-module.exports = { login, validateToken, changePassword };
+const updateProfile = async (req, res, next) => {
+    const connection = await db.getConnection();
+    try {
+        await connection.beginTransaction();
+        const userId = req.user.id;
+        const { first_name, last_name, phone_number, address } = req.body;
+
+        await updateUser(connection, userId, { first_name, last_name, phone_number, address });
+
+        await connection.commit();
+
+        // Fetch updated user details
+        const [users] = await connection.query('SELECT id, first_name, last_name, email, phone_number, address, role_id FROM users WHERE id = ?', [userId]);
+
+        res.json({ message: 'កែប្រែព័ត៌មានផ្ទាល់ខ្លួនបានជោគជ័យ', user: users[0] });
+
+    } catch (error) {
+        await connection.rollback();
+        logError("Update Profile", error);
+        next(error);
+    } finally {
+        connection.release();
+    }
+};
+
+module.exports = { login, validateToken, changePassword, updateProfile };

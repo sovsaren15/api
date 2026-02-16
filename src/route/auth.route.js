@@ -12,4 +12,7 @@ router.get('/validate-token', authenticate, authController.validateToken);
 // POST /api/auth/change-password
 router.post('/change-password', authenticate, authController.changePassword);
 
+// PUT /api/auth/profile
+router.put('/profile', authenticate, authController.updateProfile);
+
 module.exports = router;

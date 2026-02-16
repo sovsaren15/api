@@ -73,6 +73,51 @@ const createOrUpdate = async (req, res, next) => {
 
         const published_by_teacher_id = await getTeacherIdFromUserId(req.user.id);
         
+        // --- Security & Validation Checks ---
+        const [teacherRows] = await db.query('SELECT school_id FROM teachers WHERE id = ?', [published_by_teacher_id]);
+        if (teacherRows.length === 0 || !teacherRows[0].school_id) {
+            return sendError(res, 'Access denied. You are not assigned to a school.', 403);
+        }
+        const teacherSchoolId = teacherRows[0].school_id;
+
+        // Based on UI, all records in a batch share the same class and subject.
+        const { class_id, subject_id } = records[0];
+
+        if (!class_id || !subject_id) {
+            return sendError(res, 'Each record must contain a class_id and subject_id.', 400);
+        }
+
+        // Verify class and subject belong to the teacher's school
+        const [classRows] = await db.query('SELECT school_id FROM classes WHERE id = ?', [class_id]);
+        if (classRows.length === 0 || classRows[0].school_id !== teacherSchoolId) {
+            return sendError(res, 'Access denied. The specified class does not belong to your school.', 403);
+        }
+
+        const [subjectRows] = await db.query('SELECT school_id FROM subjects WHERE id = ?', [subject_id]);
+        if (subjectRows.length === 0 || subjectRows[0].school_id !== teacherSchoolId) {
+            return sendError(res, 'Access denied. The specified subject does not belong to your school.', 403);
+        }
+
+        // Validate all students belong to the same school and are enrolled in the class
+        const studentIds = records.map(r => r.student_id);
+        const [studentSchoolRows] = await db.query('SELECT id, school_id FROM students WHERE id IN (?)', [studentIds]);
+        
+        const studentSchoolMap = new Map(studentSchoolRows.map(s => [s.id, s.school_id]));
+        const studentsInWrongSchool = studentIds.filter(id => studentSchoolMap.get(id) !== teacherSchoolId);
+
+        if (studentsInWrongSchool.length > 0) {
+            return sendError(res, `Access denied. The following students are not in your school: ${studentsInWrongSchool.join(', ')}`, 403);
+        }
+
+        const [enrolledStudents] = await db.query('SELECT student_id FROM student_class_map WHERE class_id = ? AND student_id IN (?)', [class_id, studentIds]);
+        const enrolledSet = new Set(enrolledStudents.map(s => s.student_id));
+        const notEnrolledStudents = studentIds.filter(id => !enrolledSet.has(id));
+
+        if (notEnrolledStudents.length > 0) {
+            return sendError(res, `The following students are not enrolled in class ${class_id}: ${[...new Set(notEnrolledStudents)].join(', ')}`, 400);
+        }
+        // --- End of Checks ---
+
         const values = records.map(rec => [
             rec.student_id, rec.class_id, rec.subject_id, rec.academic_period, rec.final_grade, rec.comments, published_by_teacher_id
         ]);
@@ -84,7 +129,7 @@ const createOrUpdate = async (req, res, next) => {
 
         sendSuccess(res, { message: 'Academic results published successfully.' }, 201);
     } catch (error) {
-        logError("Create Academic Result", error);
+        logError("Create/Update Academic Result", error);
         next(error);
     }
 };

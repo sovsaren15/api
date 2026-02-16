@@ -4416,3 +4416,1651 @@
     at _write (node:internal/streams/writable:501:10)
     at Writable.write (node:internal/streams/writable:510:10)
 
+[2026-02-11 23:26:05] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:05] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:15] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:15] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:15] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:15] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:23] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:23] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:23] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:26:23] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:44:39] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:44:39] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:44:39] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:44:39] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:47:11] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:47:11] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:47:11] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:47:11] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:49:58] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:49:58] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:49:58] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:49:58] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:50:41] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:50:41] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:50:41] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:50:41] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:05] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:05] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:05] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:05] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:24] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:24] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:24] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:55:24] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:57:27] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:57:27] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:57:27] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-11 23:57:27] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:45] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:45] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:45] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:45] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:50] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:50] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:50] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 00:00:50] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:166:37)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:17:25] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:184:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:17:25] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:184:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:17:25] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:184:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:17:25] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:184:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:41:52] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:41:52] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:41:52] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:41:52] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:42:03] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:42:03] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:42:03] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 19:42:03] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:37:26] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:37:26] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:38:30] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:38:30] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:186:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:42:54] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:193:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:42:54] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:193:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:43:35] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:193:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:43:35] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:193:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:52:11] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 20:52:11] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:35:32] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:35:32] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:37:27] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:37:27] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:40:08] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:40:08] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:40:26] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:40:26] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:27] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:27] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:53] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:53] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:57] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:57] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:57] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:47:57] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:53:47] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:53:47] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:53:56] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:53:56] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:53:56] [Get Score Report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-12 22:53:56] [GET /api/scores/report] Error: Unknown column 's.student_code' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getScoreReport (D:\primary_school_attendance\api\src\controller\scores.controller.js:196:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-14 23:57:04] [Update Principal] Error: Unknown column 'image_profile' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:154:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-14 23:57:04] [PUT /api/principals/me] Error: Unknown column 'image_profile' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:154:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-14 23:58:25] [Update Principal] Error: Unknown column 'image_profile' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:154:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-14 23:58:25] [PUT /api/principals/me] Error: Unknown column 'image_profile' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:154:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:27] [Update Principal] Error: Unknown column 'image_profile' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:164:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:27] [PUT /api/principals/me] Error: Unknown column 'image_profile' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:164:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:32] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:58] [Update Principal] Error: Truncated incorrect DOUBLE value: 'me'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at updateUser (D:\primary_school_attendance\api\src\controller\user.service.js:59:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:129:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:00:58] [PUT /api/principals/me] Error: Truncated incorrect DOUBLE value: 'me'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at updateUser (D:\primary_school_attendance\api\src\controller\user.service.js:59:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:129:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:14] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:02:17] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:03:56] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:05:55] [Update Principal] Error: Truncated incorrect DOUBLE value: 'me'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at updateUser (D:\primary_school_attendance\api\src\controller\user.service.js:59:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:129:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:05:55] [PUT /api/principals/me] Error: Truncated incorrect DOUBLE value: 'me'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at updateUser (D:\primary_school_attendance\api\src\controller\user.service.js:59:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:129:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:08:15] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:10:33] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:11:34] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:12:39] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:01] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:56] [Update Principal] Error: Truncated incorrect DOUBLE value: 'me'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at updateUser (D:\primary_school_attendance\api\src\controller\user.service.js:59:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:129:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 00:14:56] [PUT /api/principals/me] Error: Truncated incorrect DOUBLE value: 'me'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at updateUser (D:\primary_school_attendance\api\src\controller\user.service.js:59:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:129:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:37:43] [Update Principal] Error: Unknown column 'sex' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:150:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:37:43] [PUT /api/principals/me] Error: Unknown column 'sex' in 'field list'
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\principals.controller.js:150:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [Get Principal's Own Profile (getMe)] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:41:00] [GET /api/principals/me] Error: Unknown column 'u.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:42:50] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:71:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:44:49] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:46:25] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [Get Principal's Own Profile (getMe)] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-15 19:48:31] [GET /api/principals/me] Error: Unknown column 'p.image_profile' in 'field list'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMe (D:\primary_school_attendance\api\src\controller\principals.controller.js:74:45)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:37:02] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:37:02] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:37:14] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:37:14] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:39:42] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:39:42] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:40:32] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:40:32] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:45:53] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:45:53] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:48:33] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:48:33] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:49:01] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:49:01] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:51:01] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:51:01] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:53:13] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:53:13] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:53:42] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:53:42] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:115:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:59:37] [Create Principal] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:118:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 19:59:37] [POST /api/principals] TypeError: Cannot destructure property 'first_name' of 'req.body' as it is undefined.
+    at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:118:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+

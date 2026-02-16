@@ -4,9 +4,10 @@ const router = express.Router();
 const schoolController = require('../controller/schools.controller.js');
 const { authenticate, authorize } = require('../middleware/auth.middleware.js');
 const upload = require('../middleware/upload.middleware');
+const { validateSchool } = require('../middleware/validation.middleware.js');
 
 // ==> CREATE a new school (Admin only)
-router.post('', authenticate, authorize('MANAGE_SCHOOLS'), upload.fields([{ name: 'logo', maxCount: 1 }, { name: 'cover', maxCount: 1 }]), schoolController.create);
+router.post('', authenticate, authorize('MANAGE_SCHOOLS'), upload.fields([{ name: 'logo', maxCount: 1 }, { name: 'cover', maxCount: 1 }]), validateSchool, schoolController.create);
 
 // ==> READ all schools (Any authenticated user)
 router.get('', authenticate, schoolController.getAll);

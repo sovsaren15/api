@@ -1,0 +1,94 @@
+const { body, validationResult } = require('express-validator');
+const { sendError } = require('../controller/response.helper');
+const db = require('../config/db');
+
+const validate = (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        const firstError = errors.array()[0].msg;
+        return sendError(res, firstError, 400, errors.array());
+    }
+    next();
+};
+
+const validateSchool = [
+    body('name')
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលឈ្មោះសាលា'),
+    body('address')
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលអាសយដ្ឋាន'),
+    body('email')
+        .optional({ checkFalsy: true })
+        .trim()
+        .isEmail().withMessage('ទម្រង់អ៊ីមែលមិនត្រឹមត្រូវ'),
+    body('founded_date')
+        .optional({ checkFalsy: true })
+        .isISO8601().withMessage('កាលបរិច្ឆេទមិនត្រឹមត្រូវ'),
+    validate
+];
+
+const validatePrincipal = [
+    body('first_name')
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលនាមត្រកូល'),
+    body('last_name')
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលនាមខ្លួន'),
+    body('email')
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលអ៊ីមែល')
+        .bail()
+        .isEmail().withMessage('ទម្រង់អ៊ីមែលមិនត្រឹមត្រូវ')
+        .bail()
+        .custom(async (value) => {
+            const [user] = await db.query('SELECT id FROM users WHERE email = ?', [value]);
+            if (user.length > 0) {
+                return Promise.reject('អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ');
+            }
+            return true;
+        }),
+    body('password')
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលពាក្យសម្ងាត់')
+        .isLength({ min: 6 }).withMessage('ពាក្យសម្ងាត់ត្រូវមានយ៉ាងតិច ៦ តួ'),
+    body('phone_number')
+        .optional({ checkFalsy: true })
+        .trim(),
+    body('school_id')
+        .customSanitizer(val => (val === 'null' || val === 'undefined' ? '' : val))
+        .optional({ checkFalsy: true })
+        .isInt().withMessage('School ID ត្រូវតែជាលេខ'),
+    body('experience')
+        .customSanitizer(val => (val === 'null' || val === 'undefined' ? '' : val))
+        .optional({ checkFalsy: true })
+        .isInt().withMessage('បទពិសោធន៍ត្រូវតែជាលេខ'),
+    validate
+];
+
+const validatePrincipalUpdate = [
+    body('first_name')
+        .optional()
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលនាមត្រកូល'),
+    body('last_name')
+        .optional()
+        .trim()
+        .notEmpty().withMessage('សូមបញ្ចូលនាមខ្លួន'),
+    body('phone_number')
+        .optional({ checkFalsy: true })
+        .trim(),
+    body('school_id')
+        .optional({ checkFalsy: true })
+        .isInt().withMessage('School ID ត្រូវតែជាលេខ'),
+    body('experience')
+        .optional({ checkFalsy: true })
+        .isInt().withMessage('បទពិសោធន៍ត្រូវតែជាលេខ'),
+    validate
+];
+
+module.exports = {
+    validateSchool,
+    validatePrincipal,
+    validatePrincipalUpdate
+};
