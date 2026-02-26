@@ -86,7 +86,18 @@ const create = async (req, res, next) => {
         // If a principal_id was provided, assign them to the new school
         if (principal_id) {
             await updatePrincipalAssignment(connection, schoolId, principal_id);
+            // Notify the assigned principal
+            await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [principal_id, `អ្នកត្រូវបានចាត់តាំងជានាយកសាលាសម្រាប់សាលា៖ ${name}`]
+            );
         }
+
+        // Notify the admin
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានបង្កើតសាលា "${name}" ដោយជោគជ័យ។`]
+        );
 
         await connection.commit();
         sendSuccess(res, { id: schoolId, ...req.body }, 201);
@@ -110,29 +121,14 @@ const updatePrincipalAssignment = async (connection, schoolId, newPrincipalId) =
     // Coerce empty strings or falsy values to null for database consistency.
     const newPrincipalUserId = newPrincipalId ? Number(newPrincipalId) : null;
 
-    // Find the current principal for this school
-    const [currentPrincipalRows] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [schoolId]);
-    const currentPrincipalId = currentPrincipalRows.length > 0 ? currentPrincipalRows[0].user_id : null;
-    
-    // No change needed if the principal is the same
-    if (newPrincipalUserId === currentPrincipalId) {
-        return;
-    }
-
-    // Un-assign the old principal if there was one
-    if (currentPrincipalId) {
-        // To un-assign, we remove the principal's record for that school.
-        // A principal is defined by the user_id, so we can't just set school_id to NULL
-        // if the table is just `user_id` and `school_id`. We remove the link.
-        await connection.query('DELETE FROM principals WHERE school_id = ? AND user_id = ?', [schoolId, currentPrincipalId]);
-    }
+    // 1. Un-assign any principal currently assigned to this school
+    // We use UPDATE to set school_id to NULL instead of DELETE to preserve the principal's profile data
+    await connection.query('UPDATE principals SET school_id = NULL WHERE school_id = ?', [schoolId]);
 
     // Assign the new principal if a new one is provided
     if (newPrincipalUserId) {
-        // This assumes a principal can only manage one school.
-        // A more robust way would be to insert a new record if it doesn't exist.
-        // For now, let's assume we are creating the link.
-        await connection.query('INSERT INTO principals (user_id, school_id) VALUES (?, ?) ON DUPLICATE KEY UPDATE school_id = VALUES(school_id)', [newPrincipalUserId, schoolId]);
+        // Update the principal's record to assign them to the school
+        await connection.query('UPDATE principals SET school_id = ? WHERE user_id = ?', [schoolId, newPrincipalUserId]);
     }
 };
 
@@ -142,7 +138,7 @@ const update = async (req, res, next) => {
         await connection.beginTransaction();
         const { id } = req.params;
 
-        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+        const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
 
         // Security Check: Ensure principal can only update their own school.
         if (userRole === 'principal') {
@@ -161,7 +157,7 @@ const update = async (req, res, next) => {
         }
 
         // First, verify the school exists. This is more robust.
-        const [existingSchool] = await connection.query('SELECT id FROM schools WHERE id = ?', [id]);
+        const [existingSchool] = await connection.query('SELECT id, name FROM schools WHERE id = ?', [id]);
         if (existingSchool.length === 0) {
             await connection.rollback(); // No need to proceed
             return sendError(res, 'School not found', 404);
@@ -204,11 +200,30 @@ const update = async (req, res, next) => {
 
         // Handle principal assignment if principal_id is part of the request
         if (principal_id !== undefined) {
-            // Update principals table instead of deleting to preserve profile data
-            await connection.query('UPDATE principals SET school_id = NULL WHERE school_id = ?', [id]);
-            if (principal_id) {
-                await connection.query('UPDATE principals SET school_id = ? WHERE user_id = ?', [id, principal_id]);
+            // Use the helper function for consistency
+            await updatePrincipalAssignment(connection, id, principal_id);
+        }
+
+        // Notification: If Admin updates the school, notify the principal(s)
+        if (userRole === 'admin') {
+            const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [id]);
+            for (const p of principals) {
+                let message = `ព័ត៌មានសាលារបស់អ្នកត្រូវបានកែប្រែដោយអ្នកគ្រប់គ្រង។`;
+                if (status === 'inactive') message = `សាលារបស់អ្នកត្រូវបានផ្អាកដំណើរការដោយអ្នកគ្រប់គ្រង។`;
+                else if (status === 'active') message = `សាលារបស់អ្នកត្រូវបានដាក់ឱ្យដំណើរការឡើងវិញ។`;
+
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, message]
+                );
             }
+
+            const schoolName = name || existingSchool[0].name;
+            // Notify the admin
+            await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [req.user.id, `អ្នកបានកែប្រែព័ត៌មានសាលា "${schoolName}" ដោយជោគជ័យ។`]
+            );
         }
 
         await connection.commit();
@@ -229,8 +244,30 @@ const remove = async (req, res, next) => {
     // in the database. Consider implementing a soft delete (e.g., setting status to 'inactive') instead.
     try {
         const { id } = req.params;
+
+        // Notify principal before deletion
+        const [schoolRows] = await db.query('SELECT name FROM schools WHERE id = ?', [id]);
+        let schoolName = '';
+        if (schoolRows.length > 0) {
+            schoolName = schoolRows[0].name;
+            const [principals] = await db.query('SELECT user_id FROM principals WHERE school_id = ?', [id]);
+            for (const p of principals) {
+                await db.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `សាលា "${schoolName}" ត្រូវបានលុបចេញពីប្រព័ន្ធ។`]
+                );
+            }
+        }
+
         const [result] = await db.query('DELETE FROM schools WHERE id = ?', [id]);
         if (result.affectedRows > 0) {
+            if (schoolName) {
+                // Notify the admin
+                await db.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [req.user.id, `អ្នកបានលុបសាលា "${schoolName}" ដោយជោគជ័យ។`]
+                );
+            }
             res.status(204).send();
         } else {
             sendError(res, 'School not found', 404);

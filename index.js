@@ -15,6 +15,7 @@ const studyScheduleRoutes = require('./src/route/study_schedules.route');
 const attendanceRoutes = require('./src/route/attendance.route');
 const scoreRoutes = require('./src/route/scores.route');
 const academicResultRoutes = require('./src/route/academic_results.route');
+const notificationRoutes = require('./src/route/notification.route');
 const { errorHandler } = require('./src/middleware/error.middleware');
 
 // Middleware to parse JSON bodies
@@ -29,11 +30,13 @@ app.get('/', (req, res) => {
 });
 
 // API Routes
+  
 app.use('/api/auth', authRoutes);
 app.use('/api/schools', schoolRoutes);
 app.use('/api/classes', classesRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/teachers', teacherRoutes);
+app.use('/api/notifications', notificationRoutes);
 app.use('/api/principals', principalRoutes);
 app.use('/api/subjects', subjectRoutes);
 app.use('/api/events', eventRoutes);

@@ -213,6 +213,22 @@ const create = async (req, res, next) => {
             }
         }
 
+        // Notifications
+        const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [school_id]);
+        for (const p of principals) {
+            if (p.user_id !== req.user.id) {
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `ថ្នាក់រៀនថ្មី "${name}" ត្រូវបានបង្កើត។`]
+                );
+            }
+        }
+
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានបង្កើតថ្នាក់រៀន "${name}" ដោយជោគជ័យ។`]
+        );
+
         await connection.commit();
         sendSuccess(res, { id: classId, name, school_id, academic_year, start_time, end_time, start_date, end_date, schedules_count: schedules ? schedules.length : 0 }, 201);
     } catch (error) {
@@ -273,7 +289,7 @@ const update = async (req, res, next) => {
 
         // 2. Verify class exists and belongs to the correct school
         const [classRows] = await connection.query(
-            'SELECT school_id FROM classes WHERE id = ?',
+            'SELECT school_id, name FROM classes WHERE id = ?',
             [id]
         );
 
@@ -283,6 +299,7 @@ const update = async (req, res, next) => {
         }
 
         const classSchoolId = classRows[0].school_id;
+        const existingName = classRows[0].name;
         let targetSchoolId = classSchoolId;
 
         // Non-admin users can only update classes in their own school
@@ -425,6 +442,23 @@ const update = async (req, res, next) => {
             // If schedules = [] → we already deleted everything → class has no schedules now
         }
 
+        // Notifications
+        const className = name || existingName;
+        const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [targetSchoolId]);
+        for (const p of principals) {
+            if (p.user_id !== req.user.id) {
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `ព័ត៌មានថ្នាក់រៀន "${className}" ត្រូវបានកែប្រែ។`]
+                );
+            }
+        }
+
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានកែប្រែថ្នាក់រៀន "${className}" ដោយជោគជ័យ។`]
+        );
+
         await connection.commit();
 
         // Return updated class info (you can fetch fresh data if needed)
@@ -455,6 +489,14 @@ const remove = async (req, res, next) => {
         await connection.beginTransaction();
         const { id } = req.params;
 
+        // Fetch class info for notification and validation
+        const [classRows] = await connection.query('SELECT name, school_id FROM classes WHERE id = ?', [id]);
+        if (classRows.length === 0) {
+             await connection.rollback();
+             return sendError(res, 'Class not found', 404);
+        }
+        const { name, school_id } = classRows[0];
+
         // Security Check: Ensure principal can only delete classes in their own school.
         const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
 
@@ -466,8 +508,7 @@ const remove = async (req, res, next) => {
             }
             const principalSchoolId = principalRows[0].school_id;
 
-            const [classCheck] = await connection.query('SELECT school_id FROM classes WHERE id = ?', [id]);
-            if (classCheck.length === 0 || classCheck[0].school_id !== principalSchoolId) {
+            if (school_id !== principalSchoolId) {
                 await connection.rollback();
                 return sendError(res, 'Access denied. You can only delete classes in your own school.', 403);
             }
@@ -487,6 +528,22 @@ const remove = async (req, res, next) => {
         if (result.affectedRows === 0) {
             sendError(res, 'Class not found', 404);
         }
+
+        // Notifications
+        const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [school_id]);
+        for (const p of principals) {
+            if (p.user_id !== req.user.id) {
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `ថ្នាក់រៀន "${name}" ត្រូវបានលុបចេញពីប្រព័ន្ធ។`]
+                );
+            }
+        }
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានលុបថ្នាក់រៀន "${name}" ដោយជោគជ័យ។`]
+        );
+
         await connection.commit();
         res.status(204).send();
     } catch (error) {
@@ -659,4 +716,26 @@ const removeStudent = async (req, res, next) => {
     }
 };
 
-module.exports = { getAll, getById, create, update, remove, getClassBySchoolId, assignStudent, getTeacherClasses, removeStudent };
+const getStudentClasses = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+
+        const query = `
+            SELECT 
+                c.id, c.name, c.school_id, c.academic_year, c.start_time, c.end_time, c.start_date, c.end_date
+            FROM classes c
+            JOIN student_class_map scm ON c.id = scm.class_id
+            JOIN students s ON scm.student_id = s.id
+            WHERE s.user_id = ?
+            ORDER BY c.id DESC
+        `;
+
+        const [rows] = await db.query(query, [userId]);
+        sendSuccess(res, rows);
+    } catch (error) {
+        logError("Get Student Classes", error);
+        next(error);
+    }
+};
+
+module.exports = { getAll, getById, create, update, remove, getClassBySchoolId, assignStudent, getTeacherClasses, removeStudent, getStudentClasses };

@@ -12,8 +12,12 @@ const getAll = async (req, res, next) => {
         // Role-based security: Principals/Teachers see only their school's subjects.
         const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
 
-        if (userRole === 'principal' || userRole === 'teacher') {
-            const table = userRole === 'principal' ? 'principals' : 'teachers';
+        if (userRole === 'principal' || userRole === 'teacher' || userRole === 'student') {
+            let table = '';
+            if (userRole === 'principal') table = 'principals';
+            else if (userRole === 'teacher') table = 'teachers';
+            else if (userRole === 'student') table = 'students';
+
             const [userSchool] = await db.query(`SELECT school_id FROM ${table} WHERE user_id = ?`, [req.user.id]);
 
             if (userSchool.length > 0 && userSchool[0].school_id) {
@@ -107,100 +111,176 @@ const getBySchoolId = async (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
+    const connection = await db.getConnection();
     try {
+        await connection.beginTransaction();
         let { school_id, name, description } = req.body;
 
         // Security: Principals can only create subjects for their own school
         if (req.user.role_name === 'principal') {
-            const [principalRows] = await db.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
+            const [principalRows] = await connection.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
             if (principalRows.length === 0 || !principalRows[0].school_id) {
+                await connection.rollback();
                 return sendError(res, 'You are not assigned to a school.', 403);
             }
             // If school_id is provided, it must match
             if (school_id && parseInt(school_id) !== principalRows[0].school_id) {
+                 await connection.rollback();
                  return sendError(res, 'Access denied. You can only create subjects for your own school.', 403);
             }
             school_id = principalRows[0].school_id;
         }
 
         if (!school_id || !name) {
+            await connection.rollback();
             return sendError(res, 'school_id and name are required.', 400);
         }
-        const [result] = await db.query(
+        const [result] = await connection.query(
             'INSERT INTO subjects (school_id, name, description) VALUES (?, ?, ?)',
             [school_id, name, description]
         );
+
+        // Notifications
+        const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [school_id]);
+        for (const p of principals) {
+            if (p.user_id !== req.user.id) {
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `មុខវិជ្ជាថ្មី "${name}" ត្រូវបានបង្កើត។`]
+                );
+            }
+        }
+
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានបង្កើតមុខវិជ្ជា "${name}" ដោយជោគជ័យ។`]
+        );
+
+        await connection.commit();
         sendSuccess(res, { id: result.insertId, name, description, school_id }, 201);
     } catch (error) {
+        if (connection) await connection.rollback();
         logError("Create Subject", error);
         next(error);
+    } finally {
+        if (connection) connection.release();
     }
 };
 
 const update = async (req, res, next) => {
+    const connection = await db.getConnection();
     try {
+        await connection.beginTransaction();
         const { id } = req.params;
         const { name, description } = req.body;
 
+        // Fetch existing subject
+        const [subjectRows] = await connection.query('SELECT school_id, name FROM subjects WHERE id = ?', [id]);
+        if (subjectRows.length === 0) {
+            await connection.rollback();
+            return sendError(res, 'Subject not found', 404);
+        }
+        const existingSubject = subjectRows[0];
+        const schoolId = existingSubject.school_id;
+
         // Security check for principals
         if (req.user.role_name === 'principal') {
-            const [principalRows] = await db.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
+            const [principalRows] = await connection.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
             if (principalRows.length === 0 || !principalRows[0].school_id) {
+                await connection.rollback();
                 return sendError(res, 'You are not assigned to a school.', 403);
             }
             
-            const [subjectRows] = await db.query('SELECT school_id FROM subjects WHERE id = ?', [id]);
-            if (subjectRows.length === 0) {
-                return sendError(res, 'Subject not found', 404);
-            }
-            
-            if (subjectRows[0].school_id !== principalRows[0].school_id) {
+            if (schoolId !== principalRows[0].school_id) {
+                await connection.rollback();
                 return sendError(res, 'Access denied. You can only update subjects in your own school.', 403);
             }
         }
 
-        const [result] = await db.query('UPDATE subjects SET name = ?, description = ? WHERE id = ?', [name, description, id]);
-        if (result.affectedRows > 0) {
-            sendSuccess(res, { message: 'Subject updated successfully' });
-        } else {
-            sendError(res, 'Subject not found', 404);
+        await connection.query('UPDATE subjects SET name = ?, description = ? WHERE id = ?', [name, description, id]);
+        
+        // Notifications
+        const subjectName = name || existingSubject.name;
+        const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [schoolId]);
+        for (const p of principals) {
+            if (p.user_id !== req.user.id) {
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `ព័ត៌មានមុខវិជ្ជា "${subjectName}" ត្រូវបានកែប្រែ។`]
+                );
+            }
         }
+
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានកែប្រែមុខវិជ្ជា "${subjectName}" ដោយជោគជ័យ។`]
+        );
+
+        await connection.commit();
+        sendSuccess(res, { message: 'Subject updated successfully' });
     } catch (error) {
+        if (connection) await connection.rollback();
         logError("Update Subject", error);
         next(error);
+    } finally {
+        if (connection) connection.release();
     }
 };
 
 const remove = async (req, res, next) => {
+    const connection = await db.getConnection();
     try {
+        await connection.beginTransaction();
         const { id } = req.params;
+
+        // Fetch existing subject
+        const [subjectRows] = await connection.query('SELECT school_id, name FROM subjects WHERE id = ?', [id]);
+        if (subjectRows.length === 0) {
+            await connection.rollback();
+            return sendError(res, 'Subject not found', 404);
+        }
+        const { school_id, name } = subjectRows[0];
 
         // Security check for principals
         if (req.user.role_name === 'principal') {
-            const [principalRows] = await db.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
+            const [principalRows] = await connection.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
             if (principalRows.length === 0 || !principalRows[0].school_id) {
+                await connection.rollback();
                 return sendError(res, 'You are not assigned to a school.', 403);
             }
             
-            const [subjectRows] = await db.query('SELECT school_id FROM subjects WHERE id = ?', [id]);
-            if (subjectRows.length === 0) {
-                return sendError(res, 'Subject not found', 404);
-            }
-            
-            if (subjectRows[0].school_id !== principalRows[0].school_id) {
+            if (school_id !== principalRows[0].school_id) {
+                await connection.rollback();
                 return sendError(res, 'Access denied. You can only delete subjects in your own school.', 403);
             }
         }
 
-        const [result] = await db.query('DELETE FROM subjects WHERE id = ?', [id]);
-        if (result.affectedRows > 0) {
-            res.status(204).send();
-        } else {
-            sendError(res, 'Subject not found', 404);
+        await connection.query('DELETE FROM subjects WHERE id = ?', [id]);
+        
+        // Notifications
+        const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [school_id]);
+        for (const p of principals) {
+            if (p.user_id !== req.user.id) {
+                await connection.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [p.user_id, `មុខវិជ្ជា "${name}" ត្រូវបានលុបចេញពីប្រព័ន្ធ។`]
+                );
+            }
         }
+
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានលុបមុខវិជ្ជា "${name}" ដោយជោគជ័យ។`]
+        );
+
+        await connection.commit();
+        res.status(204).send();
     } catch (error) {
+        if (connection) await connection.rollback();
         logError("Delete Subject", error);
         next(error);
+    } finally {
+        if (connection) connection.release();
     }
 };
 

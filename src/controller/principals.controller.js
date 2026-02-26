@@ -115,7 +115,7 @@ const create = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { first_name, last_name, email, password, phone_number, address, school_id, place_of_birth, experience, status } = req.body;
+        const { first_name, last_name, email, password, phone_number, address, school_id, place_of_birth, experience, status, sex, date_of_birth } = req.body;
 
         let image_profile = null;
         if (req.file) {
@@ -127,8 +127,20 @@ const create = async (req, res, next) => {
  
         // Step 2: Create the principal-specific record
         await connection.query(
-            'INSERT INTO principals (user_id, school_id, place_of_birth, experience, status, image_profile) VALUES (?, ?, ?, ?, ?, ?)',
-            [userId, sanitize(school_id), sanitize(place_of_birth), experience || 0, status || 'active', image_profile]
+            'INSERT INTO principals (user_id, school_id, place_of_birth, experience, status, image_profile, sex, date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [userId, sanitize(school_id), sanitize(place_of_birth), experience || 0, status || 'active', image_profile, sanitize(sex), sanitize(date_of_birth)]
+        );
+
+        // Create Welcome Notification
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [userId, `សូមស្វាគមន៍! គណនីនាយកសាលារបស់អ្នកត្រូវបានបង្កើត។`]
+        );
+
+        // Notify the admin
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានបង្កើតគណនីនាយកសាលាឈ្មោះ ${first_name} ${last_name} ដោយជោគជ័យ។`]
         );
 
         await connection.commit();
@@ -154,6 +166,16 @@ const update = async (req, res, next) => {
         if (id === 'me') {
             id = req.user.id;
         }
+        
+        const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
+        
+        // Fetch existing name if admin is updating another user
+        let existingName = '';
+        if (userRole === 'admin' && parseInt(id) !== req.user.id) {
+             const [u] = await connection.query('SELECT first_name, last_name FROM users WHERE id = ?', [id]);
+             if (u.length > 0) existingName = `${u[0].first_name} ${u[0].last_name}`;
+        }
+
         const { first_name, last_name, phone_number, address, school_id, place_of_birth, experience, status, sex, date_of_birth } = req.body;
 
         let image_profile;
@@ -196,6 +218,25 @@ const update = async (req, res, next) => {
             );
         }
 
+        // Notification: If Admin updates another principal's profile
+        if (userRole === 'admin' && parseInt(id) !== req.user.id) {
+            let message = `ព័ត៌មានគណនីរបស់អ្នកត្រូវបានកែប្រែដោយអ្នកគ្រប់គ្រង។`;
+            if (status === 'inactive') message = `គណនីរបស់អ្នកត្រូវបានផ្អាកដោយអ្នកគ្រប់គ្រង។`;
+            else if (status === 'active') message = `គណនីរបស់អ្នកត្រូវបានដាក់ឱ្យដំណើរការឡើងវិញ។`;
+
+            await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [id, message]
+            );
+
+            // Notify the admin
+            const nameToUse = (first_name && last_name) ? `${first_name} ${last_name}` : existingName;
+            await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [req.user.id, `អ្នកបានកែប្រែព័ត៌មាននាយកសាលាឈ្មោះ ${nameToUse} ដោយជោគជ័យ។`]
+            );
+        }
+
         await connection.commit();
         sendSuccess(res, { message: 'Principal updated successfully' });
     } catch (error) {
@@ -210,9 +251,20 @@ const update = async (req, res, next) => {
 const remove = async (req, res, next) => {
     try {
         const { id } = req.params;
+        
+        // Fetch name before delete
+        const [userRows] = await db.query('SELECT first_name, last_name FROM users WHERE id = ?', [id]);
+
         // Deleting the user will trigger ON DELETE CASCADE for the corresponding principals record.
         const [result] = await db.query('DELETE FROM users WHERE id = ?', [id]);
         if (result.affectedRows > 0) {
+            if (userRows.length > 0) {
+                const name = `${userRows[0].first_name} ${userRows[0].last_name}`;
+                await db.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [req.user.id, `អ្នកបានលុបគណនីនាយកសាលាឈ្មោះ ${name} ដោយជោគជ័យ។`]
+                );
+            }
             res.status(204).send();
         } else {
             sendError(res, 'Principal not found', 404);

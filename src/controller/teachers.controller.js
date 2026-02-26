@@ -5,6 +5,9 @@ const { sendSuccess, sendError } = require('./response.helper');
 
 const QueryBuilder = require('./query.helper');
 
+// Helper to sanitize inputs (handle empty strings from FormData)
+const sanitize = (val) => (val === '' || val === 'null' || val === 'undefined' ? null : val);
+
 const getAll = async (req, res, next) => {
     try {
         const baseQuery = `
@@ -207,14 +210,43 @@ const create = async (req, res, next) => {
         }
  
         // Step 1: Create the generic user record
-        const userId = await createUser(connection, { first_name, last_name, email, password, phone_number, address }, ROLES.TEACHER);
+        const userId = await createUser(connection, { first_name, last_name, email, password, phone_number: sanitize(phone_number), address: sanitize(address) }, ROLES.TEACHER);
  
         // Step 2: Create the teacher-specific record
         await connection.query(
             `INSERT INTO teachers 
                 (user_id, school_id, place_of_birth, sex, date_of_birth, experience, status, image_profile) 
              VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-            [userId, schoolIdForNewTeacher, place_of_birth, sex, date_of_birth, experience, status || 'active', image_profile]
+            [userId, sanitize(schoolIdForNewTeacher), sanitize(place_of_birth), sanitize(sex), sanitize(date_of_birth), sanitize(experience) || 0, status || 'active', image_profile]
+        );
+
+        // Notify the new teacher
+        const welcomeMessage = JSON.stringify({
+            text: `សូមស្វាគមន៍! គណនីគ្រូបង្រៀនរបស់អ្នកត្រូវបានបង្កើត។`,
+            link: '/teacher/profile'
+        });
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [userId, welcomeMessage]
+        );
+
+        // Notify the principal
+        if (schoolIdForNewTeacher) {
+            const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [schoolIdForNewTeacher]);
+            for (const p of principals) {
+                if (p.user_id !== req.user.id) {
+                    await connection.query(
+                        'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                        [p.user_id, `គ្រូបង្រៀនថ្មីឈ្មោះ ${first_name} ${last_name} ត្រូវបានបន្ថែមទៅក្នុងសាលារបស់អ្នក។`]
+                    );
+                }
+            }
+        }
+
+        // Notify the creator (Admin or Principal)
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានបង្កើតគណនីគ្រូបង្រៀនឈ្មោះ ${first_name} ${last_name} ដោយជោគជ័យ។`]
         );
 
         await connection.commit();
@@ -273,16 +305,25 @@ const update = async (req, res, next) => {
             }
         }
 
+        // Fetch existing teacher details for notification purposes
+        const [existingTeacher] = await connection.query(
+            `SELECT t.school_id, u.first_name, u.last_name 
+             FROM teachers t 
+             JOIN users u ON t.user_id = u.id 
+             WHERE t.user_id = ?`, 
+            [id]
+        );
+
         // Step 1: Update the generic user details
-        await updateUser(connection, id, { first_name, last_name, phone_number, address });
+        await updateUser(connection, id, { first_name, last_name, phone_number: sanitize(phone_number), address: sanitize(address) });
 
         // Step 2: Update the teacher-specific details
         const teacherFieldsToUpdate = {};
-        if (school_id !== undefined) teacherFieldsToUpdate.school_id = school_id;
-        if (place_of_birth !== undefined) teacherFieldsToUpdate.place_of_birth = place_of_birth;
-        if (sex !== undefined) teacherFieldsToUpdate.sex = sex;
-        if (date_of_birth !== undefined) teacherFieldsToUpdate.date_of_birth = date_of_birth;
-        if (experience !== undefined) teacherFieldsToUpdate.experience = experience;
+        if (school_id !== undefined) teacherFieldsToUpdate.school_id = sanitize(school_id);
+        if (place_of_birth !== undefined) teacherFieldsToUpdate.place_of_birth = sanitize(place_of_birth);
+        if (sex !== undefined) teacherFieldsToUpdate.sex = sanitize(sex);
+        if (date_of_birth !== undefined) teacherFieldsToUpdate.date_of_birth = sanitize(date_of_birth);
+        if (experience !== undefined) teacherFieldsToUpdate.experience = sanitize(experience);
         if (status !== undefined) teacherFieldsToUpdate.status = status;
         if (image_profile !== undefined) teacherFieldsToUpdate.image_profile = image_profile;
 
@@ -290,6 +331,52 @@ const update = async (req, res, next) => {
             await connection.query(
                 'UPDATE teachers SET ? WHERE user_id = ?',
                 [teacherFieldsToUpdate, id]
+            );
+        }
+
+        // Notification: If updated by someone else (Admin/Principal), notify the teacher
+        if (parseInt(id) !== req.user.id) {
+            let messageText = `ព័ត៌មានគណនីរបស់អ្នកត្រូវបានកែប្រែ។`;
+            if (status === 'inactive') messageText = `គណនីរបស់អ្នកត្រូវបានផ្អាក។`;
+            else if (status === 'active') messageText = `គណនីរបស់អ្នកត្រូវបានដាក់ឱ្យដំណើរការឡើងវិញ។`;
+            
+            const message = JSON.stringify({
+                text: messageText,
+                link: '/teacher/profile'
+            });
+            
+            await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [id, message]
+            );
+        }
+
+        // Notification: Notify the Principal(s) of the school
+        if (existingTeacher.length > 0) {
+            const { school_id, first_name: oldFirst, last_name: oldLast } = existingTeacher[0];
+            // Use updated name if available, otherwise old name
+            const displayName = `${first_name || oldFirst} ${last_name || oldLast}`;
+
+            if (school_id) {
+                const [principals] = await connection.query('SELECT user_id FROM principals WHERE school_id = ?', [school_id]);
+                for (const p of principals) {
+                    // Don't notify the user performing the action (if they are the principal)
+                    if (p.user_id !== req.user.id) {
+                        await connection.query(
+                            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                            [p.user_id, `ព័ត៌មានគ្រូបង្រៀនឈ្មោះ ${displayName} ត្រូវបានកែប្រែ។`]
+                        );
+                    }
+                }
+            }
+        }
+
+        // Notify the actor (Admin or Principal)
+        if (parseInt(id) !== req.user.id) {
+            const nameToUse = (first_name && last_name) ? `${first_name} ${last_name}` : (existingTeacher.length > 0 ? `${existingTeacher[0].first_name} ${existingTeacher[0].last_name}` : '');
+            await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [req.user.id, `អ្នកបានកែប្រែព័ត៌មានគ្រូបង្រៀនឈ្មោះ ${nameToUse} ដោយជោគជ័យ។`]
             );
         }
 
@@ -328,9 +415,32 @@ const remove = async (req, res, next) => {
             }
         }
 
+        // Notify principal before deletion
+        const [targetTeacher] = await db.query('SELECT t.school_id, u.first_name, u.last_name FROM teachers t JOIN users u ON t.user_id = u.id WHERE t.user_id = ?', [id]);
+        if (targetTeacher.length > 0) {
+            const { school_id, first_name, last_name } = targetTeacher[0];
+            const [principals] = await db.query('SELECT user_id FROM principals WHERE school_id = ?', [school_id]);
+            for (const p of principals) {
+                if (p.user_id !== req.user.id) {
+                    await db.query(
+                        'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                        [p.user_id, `គ្រូបង្រៀនឈ្មោះ ${first_name} ${last_name} ត្រូវបានលុបចេញពីប្រព័ន្ធ។`]
+                    );
+                }
+            }
+        }
+
         // Deleting the user will trigger ON DELETE CASCADE for the corresponding teachers record.
         const [result] = await db.query('DELETE FROM users WHERE id = ?', [id]);
         if (result.affectedRows > 0) {
+            // Notify the actor
+            if (targetTeacher.length > 0) {
+                const { first_name, last_name } = targetTeacher[0];
+                await db.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [req.user.id, `អ្នកបានលុបគណនីគ្រូបង្រៀនឈ្មោះ ${first_name} ${last_name} ដោយជោគជ័យ។`]
+                );
+            }
             res.status(204).send();
         } else {
             sendError(res, 'Teacher not found', 404);

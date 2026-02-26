@@ -3,6 +3,7 @@ const router = express.Router();
 const studySchedulesController = require('../controller/study_schedules.controller');
 const { authenticate, authorize } = require('../middleware/auth.middleware.js');
 
+router.get('/student/me', authenticate, studySchedulesController.getMySchedules);
 router.get('', authenticate, studySchedulesController.getAll);
 router.get('/:id', authenticate, studySchedulesController.getById);
 router.post('', authenticate, authorize('MANAGE_SCHEDULES'), studySchedulesController.create);

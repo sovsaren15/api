@@ -62,7 +62,7 @@ const getById = async (req, res, next) => {
         const { id } = req.params;
         const [rows] = await db.query(`
             SELECT 
-                u.id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
+                u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
                 s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
                 GROUP_CONCAT(c.name SEPARATOR ', ') as class_names,
                 GROUP_CONCAT(DISTINCT CONCAT(c.id, ':', c.name) SEPARATOR ',') as classes_info
@@ -128,6 +128,12 @@ const create = async (req, res, next) => {
             [userId, schoolIdForNewStudent, dob, enrollment, image_profile, status || 'active']
         );
 
+        // Notify the creator
+        await connection.query(
+            'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+            [req.user.id, `អ្នកបានបង្កើតគណនីសិស្សឈ្មោះ ${first_name} ${last_name} ដោយជោគជ័យ។`]
+        );
+
         await connection.commit();
         sendSuccess(res, { id: userId, message: 'Student created successfully' }, 201);
     } catch (error) {
@@ -173,6 +179,29 @@ const update = async (req, res, next) => {
             );
         }
 
+        const [studentRows] = await connection.query('SELECT s.school_id, u.first_name, u.last_name FROM students s JOIN users u ON s.user_id = u.id WHERE s.user_id = ?', [id]);
+
+        // Notify the actor
+        if (studentRows.length > 0) {
+             const { first_name: oldFirst, last_name: oldLast } = studentRows[0];
+             const nameToUse = (first_name && last_name) ? `${first_name} ${last_name}` : `${oldFirst} ${oldLast}`;
+             
+             const role = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+             let message = `អ្នកបានកែប្រែព័ត៌មានសិស្សឈ្មោះ ${nameToUse} ដោយជោគជ័យ។`;
+             
+             if (role === 'teacher') {
+                 message = JSON.stringify({
+                     text: message,
+                     link: `/teacher/students/${id}`
+                 });
+             }
+
+             await connection.query(
+                'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                [req.user.id, message]
+            );
+        }
+
         await connection.commit();
         sendSuccess(res, { message: 'Student updated successfully' });
     } catch (error) {
@@ -187,9 +216,20 @@ const update = async (req, res, next) => {
 const remove = async (req, res, next) => {
     try {
         const { id } = req.params;
+
+        const [studentRows] = await db.query('SELECT s.school_id, u.first_name, u.last_name FROM students s JOIN users u ON s.user_id = u.id WHERE s.user_id = ?', [id]);
+
         // Deleting from users will cascade to students table
         const [result] = await db.query('DELETE FROM users WHERE id = ?', [id]);
         if (result.affectedRows > 0) {
+            // Notify the actor
+            if (studentRows.length > 0) {
+                const { first_name, last_name } = studentRows[0];
+                await db.query(
+                    'INSERT INTO notifications (user_id, message) VALUES (?, ?)',
+                    [req.user.id, `អ្នកបានលុបគណនីសិស្សឈ្មោះ ${first_name} ${last_name} ដោយជោគជ័យ។`]
+                );
+            }
             res.status(204).send();
         } else {
             sendError(res, 'Student not found', 404);
@@ -303,6 +343,36 @@ const getByPrincipalId = async (req, res, next) => {
     }
 };
 
+const getMe = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+        const [rows] = await db.query(`
+            SELECT 
+                u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                sch.name as school_name, sch.logo as school_logo,
+                GROUP_CONCAT(c.name SEPARATOR ', ') as class_names,
+                GROUP_CONCAT(DISTINCT CONCAT(c.id, ':', c.name) SEPARATOR ',') as classes_info
+            FROM users u
+            JOIN students s ON u.id = s.user_id
+            LEFT JOIN schools sch ON s.school_id = sch.id
+            LEFT JOIN student_class_map scm ON s.id = scm.student_id
+            LEFT JOIN classes c ON scm.class_id = c.id
+            WHERE u.id = ?
+            GROUP BY u.id
+        `, [userId]);
+
+        if (rows.length > 0) {
+            sendSuccess(res, rows[0]);
+        } else {
+            sendError(res, 'Student profile not found', 404);
+        }
+    } catch (error) {
+        logError("Get Student Profile (Me)", error);
+        next(error);
+    }
+};
+
 module.exports = {
     getAll,
     getById,
@@ -310,5 +380,6 @@ module.exports = {
     update,
     remove,
     getByTeacherId,
-    getByPrincipalId
+    getByPrincipalId,
+    getMe
 };

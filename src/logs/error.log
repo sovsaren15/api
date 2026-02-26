@@ -6064,3 +6064,777 @@
     at create (D:\primary_school_attendance\api\src\controller\principals.controller.js:118:17)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
 
+[2026-02-16 22:53:52] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:53:52] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:53:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:53:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:53:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:53:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:54:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:54:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:54:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:54:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:55:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:55:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:55:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:55:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:56:25] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:56:25] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:56:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:56:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:57:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:57:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:57:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:57:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:58:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:58:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:58:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:58:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:59:25] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:59:25] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:59:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 22:59:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:00:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:00:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:00:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:00:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:01:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:01:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:01:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:01:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:02:41] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:02:41] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:02:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:02:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:03:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:03:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:03:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:03:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:04:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:04:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:04:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:04:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:05:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:05:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:16] [Update School] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\schools.controller.js:226:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:16] [PUT /api/schools/3] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\schools.controller.js:226:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:24] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:24] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:58] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:58] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:58] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:06:58] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:07:28] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:07:28] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:07:29] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:07:29] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:07:29] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:07:29] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:08:00] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:08:00] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:08:30] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:08:30] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:09:00] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:09:00] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:09:30] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:09:30] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:10:00] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:10:00] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:10:30] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:10:30] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:11:54] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:11:54] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:12:18] [Get User Notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-16 23:12:18] [GET /api/notifications] Error: Table 'school_management_system.notifications' doesn't exist
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getUserNotifications (D:\primary_school_attendance\api\src\controller\notification.controller.js:9:42)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:21:23] [Update Student] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:21:23] [PUT /api/students/60] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:21:34] [Update Student] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:21:34] [PUT /api/students/60] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:22:05] [Update Student] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:22:05] [PUT /api/students/60] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:25:20] [Update Student] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-21 23:25:20] [PUT /api/students/60] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:176:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-22 21:21:31] [GET /api/scores] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-02-22 23:47:36] [Get My Study Schedules] Error: Unknown column 'scm.id' in 'order clause'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMySchedules (D:\primary_school_attendance\api\src\controller\study_schedules.controller.js:253:41)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-22 23:47:36] [GET /api/schedules/student/me] Error: Unknown column 'scm.id' in 'order clause'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMySchedules (D:\primary_school_attendance\api\src\controller\study_schedules.controller.js:253:41)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-22 23:54:00] [Get My Study Schedules] Error: Unknown column 'scm.id' in 'order clause'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMySchedules (D:\primary_school_attendance\api\src\controller\study_schedules.controller.js:253:41)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-22 23:54:00] [GET /api/schedules/student/me] Error: Unknown column 'scm.id' in 'order clause'
+    at PromisePool.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at getMySchedules (D:\primary_school_attendance\api\src\controller\study_schedules.controller.js:253:41)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:35:5)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-02-25 20:31:51] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-02-25 20:31:51] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+

@@ -21,24 +21,46 @@ const getAll = async (req, res, next) => {
             JOIN subjects sub ON sc.subject_id = sub.id
         `;
 
-        const builder = new QueryBuilder(baseQuery);
+        // Use a local copy of query params to ensure filters are applied correctly
+        const queryParams = { ...req.query };
 
-        builder.applyFilters(req.query, {
-            class_id: 'sc.class_id',
-            student_id: 'sc.student_id',
-            subject_id: 'sc.subject_id',
-            assessment_type: 'sc.assessment_type',
-            date_recorded: 'sc.date_recorded'
-        });
-
-        if (req.query.date_from) {
-            builder.whereClauses.push('sc.date_recorded >= ?');
-            builder.params.push(req.query.date_from);
+        // Security: Restrict data based on role
+        const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
+        
+        if (userRole === 'student') {
+            const [studentRows] = await db.query('SELECT id FROM students WHERE user_id = ?', [req.user.id]);
+            if (studentRows.length === 0) {
+                return sendSuccess(res, []);
+            }
+            queryParams.student_id = studentRows[0].id;
+        } else if (userRole === 'principal' || userRole === 'teacher') {
+            const table = userRole === 'principal' ? 'principals' : 'teachers';
+            const [userRows] = await db.query(`SELECT school_id FROM ${table} WHERE user_id = ?`, [req.user.id]);
+            if (userRows.length === 0 || !userRows[0].school_id) {
+                return sendSuccess(res, []);
+            }
+            queryParams.school_id = userRows[0].school_id;
         }
 
-        if (req.query.date_to) {
+        const builder = new QueryBuilder(baseQuery);
+
+        builder.applyFilters(queryParams, {
+            'sc.class_id': 'class_id',
+            'sc.student_id': 'student_id',
+            'sc.subject_id': 'subject_id',
+            'sc.assessment_type': 'assessment_type',
+            'sc.date_recorded': 'date_recorded',
+            'c.school_id': 'school_id'
+        });
+
+        if (queryParams.date_from) {
+            builder.whereClauses.push('sc.date_recorded >= ?');
+            builder.params.push(queryParams.date_from);
+        }
+
+        if (queryParams.date_to) {
             builder.whereClauses.push('sc.date_recorded <= ?');
-            builder.params.push(req.query.date_to);
+            builder.params.push(queryParams.date_to);
         }
 
         // Build the filtered query first (WHERE clause)
@@ -48,10 +70,10 @@ const getAll = async (req, res, next) => {
         const finalBuilder = new QueryBuilder(filteredQuery);
         finalBuilder.params = filteredParams;
 
-        finalBuilder.applySorting(req.query, 'sc.date_recorded DESC, u.first_name ASC');
+        finalBuilder.applySorting(queryParams, 'sc.date_recorded DESC, u.first_name ASC');
 
-        if (req.query.limit) {
-            finalBuilder.applyPagination(req.query);
+        if (queryParams.limit) {
+            finalBuilder.applyPagination(queryParams);
         }
 
         const { query, params } = finalBuilder.build();
@@ -100,9 +122,153 @@ const createOrUpdate = async (req, res, next) => {
 
         await bulkUpsert('scores', insertCols, values, updateCols);
 
+        // Send notifications to students
+        const studentIds = [...new Set(records.map(r => r.student_id))];
+        if (studentIds.length > 0) {
+            const [students] = await db.query('SELECT id, user_id FROM students WHERE id IN (?)', [studentIds]);
+            const studentUserMap = {};
+            students.forEach(s => studentUserMap[s.id] = s.user_id);
+
+            const subjectIds = [...new Set(records.map(r => r.subject_id))];
+            const [subjects] = await db.query('SELECT id, name FROM subjects WHERE id IN (?)', [subjectIds]);
+            const subjectMap = {};
+            subjects.forEach(s => subjectMap[s.id] = s.name);
+
+            const notificationValues = [];
+            const processedPairs = new Set();
+
+            for (const record of records) {
+                const userId = studentUserMap[record.student_id];
+                const subjectName = subjectMap[record.subject_id];
+                
+                if (userId && subjectName) {
+                    // Create a unique key to prevent duplicate notifications for the same student and subject in one batch
+                    const pairKey = `${userId}-${record.subject_id}`;
+                    if (!processedPairs.has(pairKey)) {
+                        const message = `ពិន្ទុមុខវិជ្ជា ${subjectName} របស់អ្នកត្រូវបានដាក់បញ្ចូល។`;
+                        notificationValues.push([userId, message]);
+                        processedPairs.add(pairKey);
+                    }
+                }
+            }
+
+            if (notificationValues.length > 0) {
+                await db.query('INSERT INTO notifications (user_id, message) VALUES ?', [notificationValues]);
+            }
+        }
+
         sendSuccess(res, { message: 'Scores saved/updated successfully.' }, 201);
     } catch (error) {
         logError("Create/Update Scores", error);
+        next(error);
+    }
+};
+
+const getByStudentId = async (req, res, next) => {
+    // Wrapper for getAll that forces a student_id filter
+    req.query.student_id = req.params.studentId;
+    await getAll(req, res, next);
+};
+
+const getMyScores = async (req, res, next) => {
+    const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
+    if (userRole !== 'student') {
+        return sendError(res, 'Access denied. This endpoint is for students only.', 403);
+    }
+    await getAll(req, res, next);
+};
+
+const getStudentRank = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+        const { class_id } = req.query;
+
+        // Get student and class info (most recent class)
+        let studentRows;
+        if (class_id) {
+            [studentRows] = await db.query(`
+                SELECT s.id, scm.class_id 
+                FROM students s
+                JOIN student_class_map scm ON s.id = scm.student_id
+                WHERE s.user_id = ? AND scm.class_id = ?
+                LIMIT 1
+            `, [userId, class_id]);
+        } else {
+            [studentRows] = await db.query(`
+                SELECT s.id, scm.class_id 
+                FROM students s
+                JOIN student_class_map scm ON s.id = scm.student_id
+                JOIN classes c ON scm.class_id = c.id
+                WHERE s.user_id = ?
+                ORDER BY c.id DESC
+                LIMIT 1
+            `, [userId]);
+        }
+
+        if (studentRows.length === 0) {
+            return sendSuccess(res, { rank: 0, total_students: 0 });
+        }
+
+        const { id: studentId, class_id: classId } = studentRows[0];
+
+        // Calculate total score for every student in the class
+        const [rankings] = await db.query(`
+            SELECT 
+                student_id, 
+                SUM(score) as total_score
+            FROM scores 
+            WHERE class_id = ?
+            GROUP BY student_id
+            ORDER BY total_score DESC
+        `, [classId]);
+
+        // Find the index (rank)
+        const rankIndex = rankings.findIndex(r => r.student_id === studentId);
+        const rank = rankIndex !== -1 ? rankIndex + 1 : 0;
+        const totalStudents = rankings.length;
+
+        sendSuccess(res, { rank, total_students: totalStudents });
+    } catch (error) {
+        logError("Get Student Rank", error);
+        next(error);
+    }
+};
+
+const getAttendanceStats = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+
+        const [stats] = await db.query(`
+            SELECT
+                COUNT(*) as total_days,
+                SUM(CASE WHEN a.status = 'absent' THEN 1 ELSE 0 END) as absent_days,
+                SUM(CASE WHEN a.status = 'permission' THEN 1 ELSE 0 END) as permission_days,
+                SUM(CASE WHEN a.status = 'late' THEN 1 ELSE 0 END) as late_days
+            FROM attendance a
+            JOIN students s ON a.student_id = s.id
+            WHERE s.user_id = ?
+        `, [userId]);
+
+        const data = stats[0];
+        const total = data.total_days || 0;
+        const absent = data.absent_days || 0;
+        const permission = data.permission_days || 0;
+
+        // Calculate percentage (Absent + Permission)
+        let absencePercentage = 0;
+        if (total > 0) {
+            absencePercentage = ((absent + permission) / total) * 100;
+        }
+
+        sendSuccess(res, {
+            total_days: total,
+            absent_days: absent,
+            permission_days: permission,
+            late_days: data.late_days || 0,
+            absence_percentage: parseFloat(absencePercentage.toFixed(2))
+        });
+    } catch (error) {
+        logError("Get Attendance Stats", error);
         next(error);
     }
 };
@@ -135,15 +301,16 @@ const getScoreReport = async (req, res, next) => {
 
         const userRole = (req.user?.role_name || req.user?.role || '').toLowerCase();
 
-        if (userRole === 'principal') {
+        if (userRole === 'principal' || userRole === 'teacher') {
             if (!req.user?.id) {
                 return sendError(res, 'User ID not found.', 401);
             }
-            const [principalRows] = await db.query('SELECT school_id FROM principals WHERE user_id = ?', [req.user.id]);
-            if (principalRows.length === 0 || !principalRows[0].school_id) {
+            const table = userRole === 'principal' ? 'principals' : 'teachers';
+            const [userRows] = await db.query(`SELECT school_id FROM ${table} WHERE user_id = ?`, [req.user.id]);
+            if (userRows.length === 0 || !userRows[0].school_id) {
                 return sendError(res, 'You are not assigned to a school.', 403);
             }
-            const assignedSchoolId = principalRows[0].school_id;
+            const assignedSchoolId = userRows[0].school_id;
 
             if (school_id && parseInt(school_id) != assignedSchoolId) {
                 return sendError(res, 'Access denied. You can only view reports for your own school.', 403);
@@ -197,7 +364,7 @@ const getScoreReport = async (req, res, next) => {
 
         // 2. Fetch Scores
         let scoresQuery = `
-            SELECT sc.student_id, sc.subject_id, sc.assessment_type, sc.score, 
+            SELECT sc.id, sc.student_id, sc.subject_id, sc.assessment_type, sc.score, sc.date_recorded,
                    sub.name as subject_name
             FROM scores sc
             ${scoreWhereClause}
@@ -433,7 +600,8 @@ const getScoreReport = async (req, res, next) => {
             students,
             results,
             subjectGroups,
-            stats
+            stats,
+            scores: normalizedScores
         });
 
     } catch (error) {
@@ -443,4 +611,4 @@ const getScoreReport = async (req, res, next) => {
     }
 };
 
-module.exports = { getAll, createOrUpdate, remove, getScoreReport };
+module.exports = { getAll, createOrUpdate, remove, getScoreReport, getByStudentId, getMyScores, getStudentRank, getAttendanceStats };

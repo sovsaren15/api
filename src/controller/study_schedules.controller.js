@@ -242,4 +242,33 @@ const remove = async (req, res, next) => {
     }
 };
 
-module.exports = { getAll, getById, create, update, remove };
+const getMySchedules = async (req, res, next) => {
+    try {
+        const userRole = req.user.role_name;
+        if (userRole !== 'student') {
+            return sendError(res, 'Access denied. This endpoint is for students only.', 403);
+        }
+
+        // Find the student's current class
+        const [studentClass] = await db.query(`
+            SELECT scm.class_id
+            FROM students s
+            JOIN student_class_map scm ON s.id = scm.student_id
+            JOIN classes c ON scm.class_id = c.id
+            WHERE s.user_id = ?
+            ORDER BY c.id DESC LIMIT 1
+        `, [req.user.id]);
+
+        if (studentClass.length === 0) {
+            return sendSuccess(res, []);
+        }
+
+        req.query.class_id = studentClass[0].class_id;
+        await getAll(req, res, next);
+    } catch (error) {
+        logError("Get My Study Schedules", error);
+        next(error);
+    }
+};
+
+module.exports = { getAll, getById, create, update, remove, getMySchedules };
