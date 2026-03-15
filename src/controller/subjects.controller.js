@@ -64,11 +64,15 @@ const getById = async (req, res, next) => {
 const getBySchoolId = async (req, res, next) => {
     try {
         let school_id = req.params.school_id || req.params.schoolId;
-        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+        const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
 
         // Security check: Ensure principal/teacher can only access their own school's subjects
-        if (userRole === 'principal' || userRole === 'teacher') {
-            const table = userRole === 'principal' ? 'principals' : 'teachers';
+        if (userRole === 'principal' || userRole === 'teacher' || userRole === 'student') {
+            let table = '';
+            if (userRole === 'principal') table = 'principals';
+            else if (userRole === 'teacher') table = 'teachers';
+            else if (userRole === 'student') table = 'students';
+
             const [userRows] = await db.query(`SELECT school_id FROM ${table} WHERE user_id = ?`, [req.user.id]);
             
             if (userRows.length === 0 || !userRows[0].school_id) {
@@ -110,6 +114,54 @@ const getBySchoolId = async (req, res, next) => {
     }
 };
 
+const getByClassId = async (req, res, next) => {
+    try {
+        const { classId } = req.params;
+        const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
+
+        // 1. Verify Access
+        if (userRole === 'student') {
+            const [enrollment] = await db.query(
+                `SELECT * FROM student_class_map scm
+                 JOIN students s ON scm.student_id = s.id
+                 WHERE scm.class_id = ? AND s.user_id = ?`,
+                [classId, req.user.id]
+            );
+            if (enrollment.length === 0) {
+                return sendError(res, 'Access denied. You are not enrolled in this class.', 403);
+            }
+        } else if (userRole === 'principal' || userRole === 'teacher') {
+             let table = userRole === 'principal' ? 'principals' : 'teachers';
+             const [userRows] = await db.query(`SELECT school_id FROM ${table} WHERE user_id = ?`, [req.user.id]);
+             if (userRows.length === 0 || !userRows[0].school_id) {
+                 return sendError(res, 'You are not assigned to a school.', 403);
+             }
+             const [classRows] = await db.query('SELECT school_id FROM classes WHERE id = ?', [classId]);
+             if (classRows.length === 0) return sendError(res, 'Class not found', 404);
+             if (classRows[0].school_id !== userRows[0].school_id) {
+                 return sendError(res, 'Access denied. Class is not in your school.', 403);
+             }
+        } else if (userRole !== 'admin') {
+             return sendError(res, 'Access denied.', 403);
+        }
+
+        // 2. Fetch Subjects linked to this class via study schedules
+        const query = `
+            SELECT DISTINCT s.id, s.name, s.description, s.school_id
+            FROM subjects s
+            JOIN study_schedules ss ON s.id = ss.subject_id
+            WHERE ss.class_id = ?
+            ORDER BY s.name ASC
+        `;
+        
+        const [rows] = await db.query(query, [classId]);
+        sendSuccess(res, rows);
+    } catch (error) {
+        logError("Get Subjects By Class ID", error);
+        next(error);
+    }
+};
+
 const create = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
@@ -135,6 +187,17 @@ const create = async (req, res, next) => {
             await connection.rollback();
             return sendError(res, 'school_id and name are required.', 400);
         }
+
+        // Check for duplicate subject name in the same school
+        const [existingSubject] = await connection.query(
+            'SELECT id FROM subjects WHERE school_id = ? AND name = ?',
+            [school_id, name]
+        );
+        if (existingSubject.length > 0) {
+            await connection.rollback();
+            return sendError(res, 'មុខវិជ្ជានេះមានរួចហើយនៅក្នុងសាលារបស់អ្នក។ (Subject already exists)', 409);
+        }
+
         const [result] = await connection.query(
             'INSERT INTO subjects (school_id, name, description) VALUES (?, ?, ?)',
             [school_id, name, description]
@@ -194,6 +257,18 @@ const update = async (req, res, next) => {
             if (schoolId !== principalRows[0].school_id) {
                 await connection.rollback();
                 return sendError(res, 'Access denied. You can only update subjects in your own school.', 403);
+            }
+        }
+
+        // Check for duplicate subject name in the same school if the name is being changed
+        if (name && name !== existingSubject.name) {
+            const [duplicateCheck] = await connection.query(
+                'SELECT id FROM subjects WHERE school_id = ? AND name = ?',
+                [schoolId, name]
+            );
+            if (duplicateCheck.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'មុខវិជ្ជានេះមានរួចហើយនៅក្នុងសាលារបស់អ្នក។ (Subject already exists)', 409);
             }
         }
 
@@ -284,4 +359,4 @@ const remove = async (req, res, next) => {
     }
 };
 
-module.exports = { getAll, getById, getBySchoolId, create, update, remove };
+module.exports = { getAll, getById, getBySchoolId, getByClassId, create, update, remove };

@@ -55,7 +55,7 @@ const getAll = async (req, res, next) => {
         const finalBuilder = new QueryBuilder(filteredQuery);
         finalBuilder.params = filteredParams;
 
-        finalBuilder.applySorting(queryParams, 'a.date DESC, u.first_name ASC');
+        finalBuilder.applySorting(queryParams, 'a.date DESC, a.id DESC');
 
         if (queryParams.limit) {
             finalBuilder.applyPagination(queryParams);
@@ -89,11 +89,20 @@ const createOrUpdate = async (req, res, next) => {
 
         // Security Check: Ensure the class belongs to the teacher's school
         const [teacherRows] = await db.query('SELECT school_id FROM teachers WHERE id = ?', [recorded_by_teacher_id]);
-        const [classRows] = await db.query('SELECT school_id FROM classes WHERE id = ?', [class_id]);
+        const [classRows] = await db.query('SELECT school_id, end_date FROM classes WHERE id = ?', [class_id]);
 
         if (classRows.length === 0) return sendError(res, 'Class not found.', 404);
         if (teacherRows.length === 0 || teacherRows[0].school_id !== classRows[0].school_id) {
             return sendError(res, 'Access denied. You can only record attendance for classes in your school.', 403);
+        }
+
+        // Check if class is completed
+        if (classRows[0].end_date) {
+            const endDate = new Date(classRows[0].end_date);
+            endDate.setHours(23, 59, 59, 999);
+            if (new Date() > endDate) {
+                return sendError(res, 'Cannot record attendance for a completed class.', 400);
+            }
         }
 
         // Validate that students belong to the class to prevent FK errors

@@ -92,10 +92,16 @@ const getBySchoolId = async (req, res, next) => {
         // --- THE FIX IS HERE ---
         // Instead of forcing req.query and calling getAll, we query the DB directly.
         // This guarantees we ONLY get events for this specific school.
-        const [events] = await db.query(
-            'SELECT * FROM events WHERE school_id = ? ORDER BY start_date DESC', 
-            [schoolId]
-        );
+        
+        let query = 'SELECT * FROM events WHERE school_id = ? ORDER BY start_date DESC';
+        const params = [schoolId];
+
+        if (req.query.limit) {
+            query += ' LIMIT ?';
+            params.push(parseInt(req.query.limit));
+        }
+
+        const [events] = await db.query(query, params);
         
         sendSuccess(res, events);
     } catch (error) {
@@ -178,6 +184,10 @@ const create = async (req, res, next) => {
             'INSERT INTO events (school_id, title, description, location, map_link, start_date, end_date, created_by_user_id, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
             [school_id, title, description, location, map_link, start_date, end_date, created_by_user_id, imagesJson]
         );
+
+        const message = `ព្រឹត្តិការណ៍ថ្មី "${title}" ត្រូវបានបង្កើត។`;
+        await sendEventNotification(school_id, message, req.user.id);
+
         sendSuccess(res, { id: result.insertId, title, start_date, end_date }, 201);
     } catch (error) {
         logError("Create Event", error);
@@ -191,6 +201,12 @@ const update = async (req, res, next) => {
         // Ensure req.body is handled safely
         const body = req.body || {};
 
+        // Fetch existing event first to get school_id and title
+        const [existingEvent] = await db.query('SELECT school_id, title FROM events WHERE id = ?', [id]);
+        if (existingEvent.length === 0) return sendError(res, 'Event not found', 404);
+        const eventSchoolId = existingEvent[0].school_id;
+        const oldTitle = existingEvent[0].title;
+
         // Security Check: Ensure user owns the event's school
         const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
         if (userRole === 'principal' || userRole === 'teacher') {
@@ -201,10 +217,7 @@ const update = async (req, res, next) => {
                 return sendError(res, 'You are not assigned to a school.', 403);
             }
 
-            const [eventRows] = await db.query('SELECT school_id FROM events WHERE id = ?', [id]);
-            if (eventRows.length === 0) return sendError(res, 'Event not found', 404);
-
-            if (eventRows[0].school_id !== userRows[0].school_id) {
+            if (eventSchoolId !== userRows[0].school_id) {
                 return sendError(res, 'Access denied. You can only update events for your own school.', 403);
             }
         }
@@ -266,6 +279,10 @@ const update = async (req, res, next) => {
             params
         );
         if (result.affectedRows > 0) {
+            const newTitle = title || oldTitle;
+            const message = `ព្រឹត្តិការណ៍ "${newTitle}" ត្រូវបានកែប្រែ។`;
+            await sendEventNotification(eventSchoolId, message, req.user.id);
+
             sendSuccess(res, { message: 'Event updated successfully' });
         } else {
             sendError(res, 'Event not found', 404);
@@ -280,6 +297,12 @@ const remove = async (req, res, next) => {
     try {
         const { id } = req.params;
 
+        // Fetch existing event first
+        const [existingEvent] = await db.query('SELECT school_id, title FROM events WHERE id = ?', [id]);
+        if (existingEvent.length === 0) return sendError(res, 'Event not found', 404);
+        const eventSchoolId = existingEvent[0].school_id;
+        const eventTitle = existingEvent[0].title;
+
         // Security Check: Ensure user owns the event's school
         const userRole = (req.user.role_name || req.user.role || '').toLowerCase();
         if (userRole === 'principal' || userRole === 'teacher') {
@@ -290,14 +313,15 @@ const remove = async (req, res, next) => {
                 return sendError(res, 'You are not assigned to a school.', 403);
             }
 
-            const [eventRows] = await db.query('SELECT school_id FROM events WHERE id = ?', [id]);
-            if (eventRows.length > 0 && eventRows[0].school_id !== userRows[0].school_id) {
+            if (eventSchoolId !== userRows[0].school_id) {
                 return sendError(res, 'Access denied. You can only delete events for your own school.', 403);
             }
         }
 
         const [result] = await db.query('DELETE FROM events WHERE id = ?', [id]);
         if (result.affectedRows > 0) {
+            const message = `ព្រឹត្តិការណ៍ "${eventTitle}" ត្រូវបានលុប។`;
+            await sendEventNotification(eventSchoolId, message, req.user.id);
             res.status(204).send();
         } else {
             sendError(res, 'Event not found', 404);
@@ -305,6 +329,32 @@ const remove = async (req, res, next) => {
     } catch (error) {
         logError("Delete Event", error);
         next(error);
+    }
+};
+
+const sendEventNotification = async (schoolId, message, senderId) => {
+    try {
+        const query = `
+            SELECT user_id FROM principals WHERE school_id = ?
+            UNION
+            SELECT user_id FROM teachers WHERE school_id = ?
+            UNION
+            SELECT user_id FROM students WHERE school_id = ?
+        `;
+        const [recipients] = await db.query(query, [schoolId, schoolId, schoolId]);
+
+        const notifications = [];
+        for (const recipient of recipients) {
+            if (recipient.user_id !== senderId) {
+                notifications.push([recipient.user_id, message]);
+            }
+        }
+
+        if (notifications.length > 0) {
+            await db.query('INSERT INTO notifications (user_id, message) VALUES ?', [notifications]);
+        }
+    } catch (error) {
+        console.error("Failed to send event notifications:", error);
     }
 };
 

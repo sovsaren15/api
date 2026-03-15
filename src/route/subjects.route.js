@@ -5,6 +5,7 @@ const { authenticate, authorize } = require('../middleware/auth.middleware.js');
 const { validateSubject, validateSubjectUpdate } = require('../middleware/validation.middleware.js');
 
 router.get('/school/:schoolId', authenticate, subjectsController.getBySchoolId);
+router.get('/class/:classId', authenticate, subjectsController.getByClassId);
 router.get('', authenticate, subjectsController.getAll);
 router.get('/:id', authenticate, subjectsController.getById);
 router.post('', authenticate, authorize('MANAGE_SUBJECTS'), validateSubject, subjectsController.create);

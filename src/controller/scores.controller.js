@@ -2,6 +2,7 @@ const db = require('../config/db');
 const { logError } = require("../config/service");
 const { getTeacherIdFromUserId, bulkUpsert } = require('../route/record.service');
 const { sendSuccess, sendError } = require('./response.helper');
+const { sendNotificationToUser } = require('../config/notification.service');
 const QueryBuilder = require('./query.helper');
 
 const getAll = async (req, res, next) => {
@@ -148,6 +149,11 @@ const createOrUpdate = async (req, res, next) => {
                         const message = `ពិន្ទុមុខវិជ្ជា ${subjectName} របស់អ្នកត្រូវបានដាក់បញ្ចូល។`;
                         notificationValues.push([userId, message]);
                         processedPairs.add(pairKey);
+                        // Add a data payload for navigation
+                        sendNotificationToUser(userId, 'New Score', message, {
+                            type: 'score',
+                            subjectId: String(record.subject_id) // Pass as string
+                        });
                     }
                 }
             }
@@ -181,7 +187,7 @@ const getMyScores = async (req, res, next) => {
 const getStudentRank = async (req, res, next) => {
     try {
         const userId = req.user.id;
-        const { class_id } = req.query;
+        const { class_id, month, year } = req.query;
 
         // Get student and class info (most recent class)
         let studentRows;
@@ -211,21 +217,46 @@ const getStudentRank = async (req, res, next) => {
 
         const { id: studentId, class_id: classId } = studentRows[0];
 
+        // Get total students in class
+        const [countRows] = await db.query('SELECT COUNT(*) as total FROM student_class_map WHERE class_id = ?', [classId]);
+        const totalStudents = countRows[0].total;
+
         // Calculate total score for every student in the class
+        let innerQuery = `
+            SELECT student_id, subject_id, AVG(score) as subject_avg
+            FROM scores 
+            WHERE class_id = ?
+        `;
+        const queryParams = [classId];
+
+        if (month && year) {
+            innerQuery += ` AND MONTH(date_recorded) = ? AND YEAR(date_recorded) = ?`;
+            queryParams.push(month, year);
+        }
+        
+        innerQuery += ` GROUP BY student_id, subject_id`;
+
         const [rankings] = await db.query(`
             SELECT 
                 student_id, 
-                SUM(score) as total_score
-            FROM scores 
-            WHERE class_id = ?
+                AVG(subject_avg) as total_score
+            FROM (${innerQuery}) as sub
             GROUP BY student_id
             ORDER BY total_score DESC
-        `, [classId]);
+        `, queryParams);
 
-        // Find the index (rank)
-        const rankIndex = rankings.findIndex(r => r.student_id === studentId);
-        const rank = rankIndex !== -1 ? rankIndex + 1 : 0;
-        const totalStudents = rankings.length;
+        // Calculate rank with tie handling
+        let rank = 0;
+        let currentRank = 1;
+        for (let i = 0; i < rankings.length; i++) {
+            if (i > 0 && parseFloat(rankings[i].total_score) < parseFloat(rankings[i - 1].total_score)) {
+                currentRank = i + 1;
+            }
+            if (rankings[i].student_id === studentId) {
+                rank = currentRank;
+                break;
+            }
+        }
 
         sendSuccess(res, { rank, total_students: totalStudents });
     } catch (error) {
@@ -406,11 +437,9 @@ const getScoreReport = async (req, res, next) => {
         const calculateGrade = (average) => {
             if (average === null || average === undefined) return '—';
             const num = parseFloat(average);
-            if (num >= MAX_SCORE * 0.9) return 'ល្អប្រសើរ';
-            if (num >= MAX_SCORE * 0.8) return 'ល្អណាស់';
-            if (num >= MAX_SCORE * 0.7) return 'ល្អ';
-            if (num >= MAX_SCORE * 0.6) return 'ល្អបង្គួរ';
-            if (num >= MAX_SCORE * 0.5) return 'មធ្យម';
+            if (num >= 8) return 'ល្អ';
+            if (num >= 6.5) return 'ល្អបង្គួរ';
+            if (num >= 5) return 'មធ្យម';
             return 'ខ្សោយ';
         };
 
@@ -492,7 +521,7 @@ const getScoreReport = async (req, res, next) => {
                 if (!subjectHierarchy[subjId]) subjectHierarchy[subjId] = {};
                 if (!subjectHierarchy[subjId][type]) subjectHierarchy[subjId][type] = [];
                 
-                subjectHierarchy[subjId][type].push(Number(s.score));
+                subjectHierarchy[subjId][type].push(s);
             });
 
             const typeScores = {};
@@ -503,12 +532,26 @@ const getScoreReport = async (req, res, next) => {
                 const currentSubjectTypeAvgs = [];
 
                 Object.keys(types).forEach(type => {
-                    const scores = types[type];
-                    const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+                    const scoresList = types[type];
                     
-                    const key = `${subjId}-${type}`;
-                    typeScores[key] = parseFloat(avg.toFixed(2));
-                    currentSubjectTypeAvgs.push(avg);
+                    // Group by month to get latest score per month
+                    const monthlyLatest = {};
+                    scoresList.forEach(s => {
+                        const d = new Date(s.date_recorded);
+                        const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+                        if (!monthlyLatest[monthKey] || new Date(s.date_recorded) > new Date(monthlyLatest[monthKey].date_recorded)) {
+                            monthlyLatest[monthKey] = s;
+                        }
+                    });
+
+                    const validScores = Object.values(monthlyLatest).map(s => Number(s.score));
+                    
+                    if (validScores.length > 0) {
+                        const avg = validScores.reduce((a, b) => a + b, 0) / validScores.length;
+                        const key = `${subjId}-${type}`;
+                        typeScores[key] = parseFloat(avg.toFixed(2));
+                        currentSubjectTypeAvgs.push(avg);
+                    }
                 });
 
                 if (currentSubjectTypeAvgs.length > 0) {

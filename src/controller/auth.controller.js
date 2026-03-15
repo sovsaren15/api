@@ -6,7 +6,13 @@ const { updateUser } = require('./user.service');
 
 const login = async (req, res, next) => {
     try {
-        const { email, password } = req.body;
+        const { email, password, fcm_token } = req.body;
+
+        // --- DEBUGGING STEP ---
+        console.log('Login attempt with body:', req.body);
+        if (!fcm_token) {
+            console.warn("⚠️ Warning: fcm_token is missing or null in login request");
+        }
 
         if (!email || !password) {
             return res.status(400).json({ message: 'សូមបញ្ចូលអ៊ីមែល និងពាក្យសម្ងាត់' });
@@ -48,6 +54,11 @@ const login = async (req, res, next) => {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ message: 'អ៊ីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ' });
+        }
+
+        // If an FCM token is provided, save it to the user's record.
+        if (fcm_token) {
+            await db.query('UPDATE users SET fcm_token = ? WHERE id = ?', [fcm_token, user.id]);
         }
 
         // Create JWT payload

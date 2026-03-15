@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const bcrypt = require('bcryptjs');
 const { logError } = require("../config/service");
 const { createUser, updateUser, ROLES } = require('./user.service');
 const { sendSuccess, sendError } = require('./response.helper');
@@ -46,7 +47,7 @@ const getAll = async (req, res, next) => {
             req.query,
             allowedFilters,
             searchFields,
-            'u.last_name ASC, u.first_name ASC' // Default sort order
+            'u.id DESC' // Default sort order
         );
 
         const [rows] = await db.query(query, params);
@@ -270,7 +271,7 @@ const update = async (req, res, next) => {
         }
         let { 
             first_name, last_name, phone_number, address, 
-            school_id, place_of_birth, sex, date_of_birth, experience, status, image_profile
+            school_id, place_of_birth, sex, date_of_birth, experience, status, image_profile, password
         } = req.body;
 
         // Handle image upload
@@ -316,6 +317,11 @@ const update = async (req, res, next) => {
 
         // Step 1: Update the generic user details
         await updateUser(connection, id, { first_name, last_name, phone_number: sanitize(phone_number), address: sanitize(address) });
+
+        if (password && password.trim() !== '') {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await connection.query('UPDATE users SET password = ? WHERE id = ?', [hashedPassword, id]);
+        }
 
         // Step 2: Update the teacher-specific details
         const teacherFieldsToUpdate = {};
@@ -501,7 +507,7 @@ const getTeacherDashboard = async (req, res, next) => {
                 ORDER BY ss.start_time ASC
             `, [teacher_id]),
             // Get recent school events (upcoming or very recent)
-            db.query('SELECT id, title, start_date, end_date FROM events WHERE school_id = ? AND end_date >= CURDATE() - INTERVAL 7 DAY ORDER BY start_date ASC LIMIT 5', [school_id])
+            db.query('SELECT id, title, start_date, end_date, image, location FROM events WHERE school_id = ? AND end_date >= CURDATE() - INTERVAL 7 DAY ORDER BY start_date ASC LIMIT 5', [school_id])
         ]);
 
         const dashboardData = {

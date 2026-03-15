@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const bcrypt = require('bcryptjs');
 const { logError } = require("../config/service");
 const { createUser, updateUser, ROLES } = require('./user.service');
 const { sendSuccess, sendError } = require('./response.helper');
@@ -52,7 +53,7 @@ const getById = async (req, res, next) => {
         const [rows] = await db.query(`
             SELECT 
                 u.id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
-                p.school_id, p.place_of_birth, p.experience, p.status, p.image_profile,
+                p.school_id, p.place_of_birth, p.experience, p.status, p.image_profile, p.sex, p.date_of_birth,
                 s.name as school_name
             FROM users u
             JOIN principals p ON u.id = p.user_id
@@ -151,6 +152,9 @@ const create = async (req, res, next) => {
         if (error.code === 'ER_DUP_ENTRY' || error.errno === 1062) {
             return sendError(res, 'អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
         }
+        if (error.message === 'Phone number cannot be duplicated') {
+            return sendError(res, 'លេខទូរស័ព្ទនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
         logError("Create Principal", error);
         next(error);
     } finally {
@@ -176,7 +180,7 @@ const update = async (req, res, next) => {
              if (u.length > 0) existingName = `${u[0].first_name} ${u[0].last_name}`;
         }
 
-        const { first_name, last_name, phone_number, address, school_id, place_of_birth, experience, status, sex, date_of_birth } = req.body;
+        const { first_name, last_name, phone_number, address, school_id, place_of_birth, experience, status, sex, date_of_birth, password } = req.body;
 
         let image_profile;
         if (req.file) {
@@ -184,17 +188,11 @@ const update = async (req, res, next) => {
         }
 
         // Step 1: Update the generic user details
-        // We construct the object manually for user table fields
-        const userFields = { first_name, last_name, phone_number: sanitize(phone_number), address: sanitize(address) };
+        await updateUser(connection, id, { first_name, last_name, phone_number: sanitize(phone_number), address: sanitize(address) });
 
-        // Filter out undefined values
-        const finalUserFields = {};
-        for (const key in userFields) {
-            if (userFields[key] !== undefined) finalUserFields[key] = userFields[key];
-        }
-
-        if (Object.keys(finalUserFields).length > 0) {
-            await connection.query('UPDATE users SET ? WHERE id = ?', [finalUserFields, id]);
+        if (password && password.trim() !== '') {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await connection.query('UPDATE users SET password = ? WHERE id = ?', [hashedPassword, id]);
         }
 
         // Step 2: Update the principal-specific details
@@ -241,6 +239,12 @@ const update = async (req, res, next) => {
         sendSuccess(res, { message: 'Principal updated successfully' });
     } catch (error) {
         await connection.rollback();
+        if (error.code === 'ER_DUP_ENTRY' || error.errno === 1062) {
+            return sendError(res, 'អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
+        if (error.message === 'Phone number cannot be duplicated') {
+            return sendError(res, 'លេខទូរស័ព្ទនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
         logError("Update Principal", error);
         next(error);
     } finally {

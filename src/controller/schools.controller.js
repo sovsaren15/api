@@ -40,7 +40,7 @@ const getById = async (req, res, next) => {
             SELECT 
                 s.*, 
                 p.user_id as principal_id,
-                CONCAT(u.first_name, ' ', u.last_name) as director_name,
+                CONCAT(u.last_name, ' ', u.first_name) as director_name,
                 (SELECT COUNT(*) FROM teachers WHERE school_id = s.id) as total_teachers,
                 (SELECT COUNT(*) FROM students WHERE school_id = s.id) as total_students,
                 (SELECT COUNT(*) FROM classes WHERE school_id = s.id) as total_classes
@@ -67,6 +67,33 @@ const create = async (req, res, next) => {
     try {
         await connection.beginTransaction();
         let { name, address, phone_number, email, status, founded_date, school_level, logo, cover, principal_id, website, description } = req.body;
+
+        // Check for duplicate school name
+        if (name && name.trim() !== '') {
+            const [existingName] = await connection.query('SELECT id FROM schools WHERE name = ?', [name.trim()]);
+            if (existingName.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'ឈ្មោះសាលានេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+            }
+        }
+
+        // Check for duplicate phone number
+        if (phone_number && phone_number.trim() !== '') {
+            const [existingPhone] = await connection.query('SELECT id FROM schools WHERE phone_number = ?', [phone_number.trim()]);
+            if (existingPhone.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'លេខទូរស័ព្ទនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+            }
+        }
+
+        // Check for duplicate email
+        if (email && email.trim() !== '') {
+            const [existingEmail] = await connection.query('SELECT id FROM schools WHERE email = ?', [email.trim()]);
+            if (existingEmail.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+            }
+        }
 
         if (req.files) {
             if (req.files.logo && req.files.logo.length > 0) {
@@ -103,6 +130,9 @@ const create = async (req, res, next) => {
         sendSuccess(res, { id: schoolId, ...req.body }, 201);
     } catch (error) {
         await connection.rollback();
+        if (error.message === 'Phone number cannot be duplicated') {
+            return sendError(res, 'លេខទូរស័ព្ទនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
         logError("Create School", error);
         next(error);
     } finally {
@@ -164,6 +194,33 @@ const update = async (req, res, next) => {
         }
 
         let { name, address, phone_number, email, status, founded_date, school_level, logo, cover, principal_id, website, description } = req.body;
+
+        // Check for duplicate school name, excluding the current school
+        if (name && name.trim() !== '') {
+            const [existingName] = await connection.query('SELECT id FROM schools WHERE name = ? AND id != ?', [name.trim(), id]);
+            if (existingName.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'ឈ្មោះសាលានេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+            }
+        }
+
+        // Check for duplicate phone number, excluding the current school
+        if (phone_number && phone_number.trim() !== '') {
+            const [existingPhone] = await connection.query('SELECT id FROM schools WHERE phone_number = ? AND id != ?', [phone_number.trim(), id]);
+            if (existingPhone.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'លេខទូរស័ព្ទនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+            }
+        }
+
+        // Check for duplicate email, excluding the current school
+        if (email && email.trim() !== '') {
+            const [existingEmail] = await connection.query('SELECT id FROM schools WHERE email = ? AND id != ?', [email.trim(), id]);
+            if (existingEmail.length > 0) {
+                await connection.rollback();
+                return sendError(res, 'អ៊ីមែលនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+            }
+        }
 
         if (req.files) {
             if (req.files.logo && req.files.logo.length > 0) {
@@ -230,6 +287,9 @@ const update = async (req, res, next) => {
         sendSuccess(res, { message: 'School updated successfully' });
     } catch (error) {
         await connection.rollback();
+        if (error.message === 'Phone number cannot be duplicated') {
+            return sendError(res, 'លេខទូរស័ព្ទនេះមានរួចហើយនៅក្នុងប្រព័ន្ធ', 409);
+        }
         logError("Update School", error);
         next(error);
     } finally {

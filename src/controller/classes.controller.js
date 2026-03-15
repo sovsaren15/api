@@ -85,7 +85,7 @@ const getById = async (req, res, next) => {
         // Fetch associated study schedules
         const [scheduleRows] = await db.query(`
             SELECT 
-                ss.id, ss.subject_id, ss.teacher_id, ss.day_of_week, ss.start_time, ss.end_time,
+                ss.id, ss.subject_id, t.user_id as teacher_id, ss.day_of_week, ss.start_time, ss.end_time,
                 s.name as subject_name,
                 CONCAT(u.first_name, ' ', u.last_name) as teacher_name
             FROM study_schedules ss
@@ -122,6 +122,8 @@ const create = async (req, res, next) => {
     try {
         await connection.beginTransaction();
         let { name, school_id, academic_year, start_time, end_time, start_date, end_date, schedules } = req.body;
+        const classStartTime = start_time;
+        const classEndTime = end_time;
         const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
         const userId = req.user.id;
 
@@ -152,6 +154,17 @@ const create = async (req, res, next) => {
             return sendError(res, 'Missing required fields: name, school_id, academic_year', 400);
         }
 
+        // Check for duplicate class
+        const [existingClass] = await connection.query(
+            'SELECT id FROM classes WHERE school_id = ? AND name = ? AND academic_year = ? AND start_time <=> ? AND end_time <=> ?',
+            [school_id, name, academic_year, start_time || null, end_time || null]
+        );
+
+        if (existingClass.length > 0) {
+            await connection.rollback();
+            return sendError(res, 'មានថ្នាក់រៀនដែលមានឈ្មោះ ឆ្នាំសិក្សា និងម៉ោងនេះរួចហើយនៅក្នុងសាលារបស់អ្នក។', 409);
+        }
+
         const [result] = await connection.query(
             'INSERT INTO classes (name, school_id, academic_year, start_time, end_time, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?, ?)', 
             [name, school_id, academic_year, start_time || null, end_time || null, start_date || null, end_date || null]
@@ -160,6 +173,14 @@ const create = async (req, res, next) => {
 
         // If schedules are provided, insert them into the study_schedules table
         if (schedules && Array.isArray(schedules) && schedules.length > 0) {
+            if (end_date) {
+                const endDateObj = new Date(end_date);
+                endDateObj.setHours(23, 59, 59, 999);
+                if (new Date() > endDateObj) {
+                    await connection.rollback();
+                    return sendError(res, 'Cannot add schedules to a completed class.', 400);
+                }
+            }
             const scheduleValues = [];
             const teacherIds = new Set();
             for (const schedule of schedules) {
@@ -167,6 +188,21 @@ const create = async (req, res, next) => {
                 if (!subject_id || !teacher_id || !day_of_week || !start_time || !end_time) {
                     await connection.rollback();
                     return sendError(res, 'Each schedule must include subject_id, teacher_id, day_of_week, start_time, and end_time.', 400);
+                }
+
+                if (start_time >= end_time) {
+                    await connection.rollback();
+                    return sendError(res, 'Start time must be before end time in schedule.', 400);
+                }
+
+                // Check if schedule is within class times
+                if (classStartTime && start_time < classStartTime) {
+                    await connection.rollback();
+                    return sendError(res, 'Schedule start time cannot be earlier than class start time.', 400);
+                }
+                if (classEndTime && end_time > classEndTime) {
+                    await connection.rollback();
+                    return sendError(res, 'Schedule end time cannot be later than class end time.', 400);
                 }
 
                 // Resolve teacher_id (User ID) to internal Teacher ID
@@ -191,6 +227,20 @@ const create = async (req, res, next) => {
                 if (subjectRows[0].school_id !== targetSchoolId) {
                     await connection.rollback();
                     return sendError(res, `Subject ID ${subject_id} belongs to school ${subjectRows[0].school_id}, but class is in school ${targetSchoolId}.`, 400);
+                }
+
+                // Check for conflicts
+                const [conflicts] = await connection.query(`
+                    SELECT id FROM study_schedules 
+                    WHERE teacher_id = ? 
+                    AND day_of_week = ? 
+                    AND start_time < ? 
+                    AND end_time > ?
+                `, [internalTeacherId, day_of_week, end_time, start_time]);
+
+                if (conflicts.length > 0) {
+                    await connection.rollback();
+                    return sendError(res, `Teacher (User ID ${teacher_id}) already has a class scheduled on ${day_of_week} between ${start_time} and ${end_time}.`, 409);
                 }
 
                 scheduleValues.push([classId, internalTeacherId, subject_id, day_of_week, start_time, end_time]);
@@ -289,7 +339,7 @@ const update = async (req, res, next) => {
 
         // 2. Verify class exists and belongs to the correct school
         const [classRows] = await connection.query(
-            'SELECT school_id, name FROM classes WHERE id = ?',
+            'SELECT school_id, name, academic_year, end_date, start_time, end_time FROM classes WHERE id = ?',
             [id]
         );
 
@@ -300,6 +350,7 @@ const update = async (req, res, next) => {
 
         const classSchoolId = classRows[0].school_id;
         const existingName = classRows[0].name;
+        const existingAcademicYear = classRows[0].academic_year;
         let targetSchoolId = classSchoolId;
 
         // Non-admin users can only update classes in their own school
@@ -311,6 +362,22 @@ const update = async (req, res, next) => {
         // Allow Admin to change the school_id
         if (!schoolId && school_id) {
             targetSchoolId = parseInt(school_id, 10);
+        }
+
+        // Check for duplicate class
+        const checkName = name !== undefined ? name.trim() : existingName;
+        const checkAcademicYear = academic_year !== undefined ? academic_year.trim() : existingAcademicYear;
+        const checkStartTime = start_time !== undefined ? (start_time || null) : classRows[0].start_time;
+        const checkEndTime = end_time !== undefined ? (end_time || null) : classRows[0].end_time;
+
+        const [duplicateClass] = await connection.query(
+            'SELECT id FROM classes WHERE school_id = ? AND name = ? AND academic_year = ? AND start_time <=> ? AND end_time <=> ? AND id != ?',
+            [targetSchoolId, checkName, checkAcademicYear, checkStartTime, checkEndTime, id]
+        );
+
+        if (duplicateClass.length > 0) {
+            await connection.rollback();
+            return sendError(res, 'មានថ្នាក់រៀនដែលមានឈ្មោះ ឆ្នាំសិក្សា និងម៉ោងនេះរួចហើយនៅក្នុងសាលារបស់អ្នក។', 409);
         }
 
         // 3. Build update query for class (only update provided fields)
@@ -358,6 +425,8 @@ const update = async (req, res, next) => {
 
         // 4. Handle schedules (only if provided in request)
         if (schedules !== undefined) {
+            const effectiveEndDate = end_date !== undefined ? end_date : classRows[0].end_date;
+
             // Delete existing schedules and teacher-class mapping
             await connection.query('DELETE FROM study_schedules WHERE class_id = ?', [id]);
             await connection.query('DELETE FROM teacher_class_map WHERE class_id = ?', [id]);
@@ -366,12 +435,29 @@ const update = async (req, res, next) => {
                 const scheduleValues = [];
                 const teacherIds = new Set();
 
+                const effectiveStartTime = start_time !== undefined ? start_time : classRows[0].start_time;
+                const effectiveEndTime = end_time !== undefined ? end_time : classRows[0].end_time;
+
                 for (const sch of schedules) {
                     const { subject_id, teacher_id, day_of_week, start_time, end_time } = sch;
 
                     if (!subject_id || !teacher_id || !day_of_week || !start_time || !end_time) {
                         await connection.rollback();
                         return sendError(res, 'Each schedule entry must include: subject_id, teacher_id, day_of_week, start_time, end_time', 400);
+                    }
+
+                    if (start_time >= end_time) {
+                        await connection.rollback();
+                        return sendError(res, 'Start time must be before end time in schedule.', 400);
+                    }
+
+                    if (effectiveStartTime && start_time < effectiveStartTime) {
+                        await connection.rollback();
+                        return sendError(res, 'Schedule start time cannot be earlier than class start time.', 400);
+                    }
+                    if (effectiveEndTime && end_time > effectiveEndTime) {
+                        await connection.rollback();
+                        return sendError(res, 'Schedule end time cannot be later than class end time.', 400);
                     }
 
                     // Convert user_id → internal teacher_id
@@ -408,6 +494,20 @@ const update = async (req, res, next) => {
                     if (subjectRows[0].school_id !== targetSchoolId) {
                         await connection.rollback();
                         return sendError(res, `Subject ${subject_id} belongs to school ${subjectRows[0].school_id}, but class is in school ${targetSchoolId}`, 403);
+                    }
+
+                    // Check for conflicts
+                    const [conflicts] = await connection.query(`
+                        SELECT id FROM study_schedules 
+                        WHERE teacher_id = ? 
+                        AND day_of_week = ? 
+                        AND start_time < ? 
+                        AND end_time > ?
+                    `, [internalTeacherId, day_of_week, end_time, start_time]);
+
+                    if (conflicts.length > 0) {
+                        await connection.rollback();
+                        return sendError(res, `Teacher (User ID ${teacher_id}) already has a class scheduled on ${day_of_week} between ${start_time} and ${end_time}.`, 409);
                     }
 
                     scheduleValues.push([
@@ -575,7 +675,7 @@ const getClassBySchoolId = async (req, res, next) => {
             return sendError(res, 'You do not have permission to access classes.', 403);
         }
 
-        const [classRows] = await db.query('SELECT * FROM classes WHERE school_id = ?', [school_id]);
+        const [classRows] = await db.query('SELECT * FROM classes WHERE school_id = ? ORDER BY id DESC', [school_id]);
         sendSuccess(res, { data: classRows, total: classRows.length }); // Ensure consistency with getAll
     } catch (error) {
         logError("Get Classes by School ID", error);
@@ -605,6 +705,14 @@ const assignStudent = async (req, res, next) => {
         const internalStudentId = studentRows[0].id;
         const studentSchoolId = studentRows[0].school_id;
 
+        // Fetch class details to check times and academic year
+        const [classCheck] = await connection.query('SELECT school_id, academic_year, start_time, end_time FROM classes WHERE id = ?', [classId]);
+        if (classCheck.length === 0) {
+            await connection.rollback();
+            return sendError(res, 'Class not found.', 404);
+        }
+        const targetClass = classCheck[0];
+
         // Security Check: Principal and Teacher can only assign students within their own school.
         if (userRole === 'principal' || userRole === 'teacher') {
             const userTable = userRole === 'principal' ? 'principals' : 'teachers';
@@ -616,11 +724,7 @@ const assignStudent = async (req, res, next) => {
             const schoolId = userRows[0].school_id;
 
             // Verify the class belongs to the user's school
-            const [classCheck] = await connection.query('SELECT school_id FROM classes WHERE id = ?', [classId]);
-            if (classCheck.length === 0) {
-                await connection.rollback();
-                return sendError(res, 'Class not found.', 404);
-            } else if (classCheck[0].school_id !== schoolId) {
+            if (targetClass.school_id !== schoolId) {
                 await connection.rollback();
                 return sendError(res, 'Access denied. Class not in your school.', 403);
             }
@@ -631,6 +735,25 @@ const assignStudent = async (req, res, next) => {
                 return sendError(res, 'Access denied. Student not in your school.', 403);
             }
         } // Admins are not restricted by school
+
+        // Check for time and academic year conflicts
+        if (targetClass.start_time && targetClass.end_time) {
+            const [conflicts] = await connection.query(`
+                SELECT c.name 
+                FROM student_class_map scm
+                JOIN classes c ON scm.class_id = c.id
+                WHERE scm.student_id = ? 
+                AND c.academic_year = ? 
+                AND c.id != ?
+                AND c.start_time < ? 
+                AND c.end_time > ?
+            `, [internalStudentId, targetClass.academic_year, classId, targetClass.end_time, targetClass.start_time]);
+
+            if (conflicts.length > 0) {
+                await connection.rollback();
+                return sendError(res, `សិស្សនេះកំពុងសិក្សានៅថ្នាក់ "${conflicts[0].name}" ដែលមានម៉ោងសិក្សាជាន់គ្នាក្នុងឆ្នាំសិក្សាដូចគ្នា។`, 409);
+            }
+        }
 
         // Insert into the mapping table
         await connection.query('INSERT INTO student_class_map (student_id, class_id) VALUES (?, ?)', [internalStudentId, classId]);

@@ -6838,3 +6838,373 @@
     at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
     at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
 
+[2026-03-01 19:32:22] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-01 21:33:06] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-01 21:33:06] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-03 17:22:21] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-03 17:37:02] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-03 17:37:02] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-03 18:27:13] [POST /api/schools] PayloadTooLargeError: request entity too large
+    at readStream (D:\primary_school_attendance\api\node_modules\raw-body\index.js:163:17)
+    at getRawBody (D:\primary_school_attendance\api\node_modules\raw-body\index.js:116:12)
+    at read (D:\primary_school_attendance\api\node_modules\body-parser\lib\read.js:74:3)
+    at jsonParser (D:\primary_school_attendance\api\node_modules\body-parser\lib\types\json.js:125:5)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\primary_school_attendance\api\node_modules\router\index.js:342:13)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:297:9
+    at processParams (D:\primary_school_attendance\api\node_modules\router\index.js:582:12)
+    at next (D:\primary_school_attendance\api\node_modules\router\index.js:291:5)
+    at cors (D:\primary_school_attendance\api\node_modules\cors\lib\index.js:188:7)
+
+[2026-03-03 18:27:20] [POST /api/schools] PayloadTooLargeError: request entity too large
+    at readStream (D:\primary_school_attendance\api\node_modules\raw-body\index.js:163:17)
+    at getRawBody (D:\primary_school_attendance\api\node_modules\raw-body\index.js:116:12)
+    at read (D:\primary_school_attendance\api\node_modules\body-parser\lib\read.js:74:3)
+    at jsonParser (D:\primary_school_attendance\api\node_modules\body-parser\lib\types\json.js:125:5)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (D:\primary_school_attendance\api\node_modules\router\index.js:342:13)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:297:9
+    at processParams (D:\primary_school_attendance\api\node_modules\router\index.js:582:12)
+    at next (D:\primary_school_attendance\api\node_modules\router\index.js:291:5)
+    at cors (D:\primary_school_attendance\api\node_modules\cors\lib\index.js:188:7)
+
+[2026-03-04 19:41:27] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-04 19:44:01] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-04 20:00:00] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-04 20:00:07] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-04 20:01:48] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-04 20:02:12] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-04 20:15:09] [POST /api/students] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-05 19:52:34] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-07 22:15:46] [Update Student] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:187:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-03-07 22:15:46] [PUT /api/students/48] Error: Incorrect date value: '' for column 'date_of_birth' at row 1
+    at PromisePoolConnection.query (D:\primary_school_attendance\api\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at update (D:\primary_school_attendance\api\src\controller\student.controller.js:187:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+[2026-03-09 00:03:17] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-09 00:03:17] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-10 17:01:25] [POST /api/events] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-10 17:01:34] [POST /api/events] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-10 17:02:14] [POST /api/events] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-10 17:12:38] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-10 18:05:24] [PUT /api/schools/14] MulterError: File too large
+    at abortWithCode (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:85:22)
+    at FileStream.<anonymous> (D:\primary_school_attendance\api\node_modules\multer\lib\make-middleware.js:155:11)
+    at FileStream.emit (node:events:519:28)
+    at SBMH.ssCb [as _cb] (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:479:32)
+    at feed (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:248:10)
+    at SBMH.push (D:\primary_school_attendance\api\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\primary_school_attendance\api\node_modules\busboy\lib\types\multipart.js:567:19)
+    at writeOrBuffer (node:internal/streams/writable:572:12)
+    at _write (node:internal/streams/writable:501:10)
+    at Writable.write (node:internal/streams/writable:510:10)
+
+[2026-03-11 19:08:30] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-12 20:11:25] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-12 20:11:25] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-12 22:44:15] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-12 22:50:19] [GET /api/subjects/school/me] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-15 22:12:18] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+
+[2026-03-15 22:12:18] [GET /api/auth/validate-token] TokenExpiredError: jwt expired
+    at D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (D:\primary_school_attendance\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at authenticate (D:\primary_school_attendance\api\src\middleware\auth.middleware.js:12:25)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at next (D:\primary_school_attendance\api\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\primary_school_attendance\api\node_modules\router\lib\route.js:117:3)
+    at handle (D:\primary_school_attendance\api\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\primary_school_attendance\api\node_modules\router\lib\layer.js:152:17)
+    at D:\primary_school_attendance\api\node_modules\router\index.js:295:15
+

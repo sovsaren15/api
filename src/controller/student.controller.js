@@ -1,4 +1,5 @@
 const db = require('../config/db');
+const bcrypt = require('bcryptjs');
 const { logError } = require("../config/service");
 const { createUser, updateUser, ROLES } = require('./user.service');
 const { sendSuccess, sendError } = require('./response.helper');
@@ -9,7 +10,7 @@ const getAll = async (req, res, next) => {
         const baseQuery = `
             SELECT SQL_CALC_FOUND_ROWS DISTINCT
                 u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
-                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status, s.sex,
                 sch.name as school_name
             FROM users u
             JOIN students s ON u.id = s.user_id
@@ -23,11 +24,12 @@ const getAll = async (req, res, next) => {
             's.status': 'status'
         };
 
-        const userRole = req.user.role_name ? req.user.role_name.toLowerCase() : '';
+        const userRole = req.user.role_name || req.user.role;
+        const role = userRole ? userRole.toLowerCase() : '';
 
         // Security: If the user is a principal or teacher, force filter by their school
-        if (userRole === 'principal' || userRole === 'teacher') {
-            const userTable = userRole === 'principal' ? 'principals' : 'teachers';
+        if (role === 'principal' || role === 'teacher') {
+            const userTable = role === 'principal' ? 'principals' : 'teachers';
             const [userRows] = await db.query(`SELECT school_id FROM ${userTable} WHERE user_id = ?`, [req.user.id]);
             if (userRows.length === 0 || !userRows[0].school_id) {
                 return sendSuccess(res, { data: [], total: 0 }); // Principal not assigned, return empty list
@@ -45,7 +47,7 @@ const getAll = async (req, res, next) => {
             req.query,
             allowedFilters,
             searchFields,
-            'u.last_name ASC, u.first_name ASC' // Default sort
+            'u.id DESC' // Default sort
         );
 
         const [rows] = await db.query(query, params);
@@ -63,7 +65,7 @@ const getById = async (req, res, next) => {
         const [rows] = await db.query(`
             SELECT 
                 u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
-                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status, s.sex,
                 GROUP_CONCAT(c.name SEPARATOR ', ') as class_names,
                 GROUP_CONCAT(DISTINCT CONCAT(c.id, ':', c.name) SEPARATOR ',') as classes_info
             FROM users u
@@ -89,11 +91,12 @@ const create = async (req, res, next) => {
     const connection = await db.getConnection();
     try {
         await connection.beginTransaction();
-        const { first_name, last_name, email, password, phone_number, address, date_of_birth, enrollment_date, status } = req.body;
+        const { first_name, last_name, email, password, phone_number, address, date_of_birth, enrollment_date, status, sex, class_id } = req.body;
         
         // Fix: Convert empty strings to null for date fields (FormData sends empty strings for empty inputs)
         const dob = date_of_birth === '' ? null : date_of_birth;
         const enrollment = enrollment_date === '' ? null : enrollment_date;
+        const gender = sex || 'Male'; // Default to Male if not provided
 
         let schoolIdForNewStudent = req.body.school_id; // Allow admin to specify
 
@@ -123,10 +126,18 @@ const create = async (req, res, next) => {
         const userId = await createUser(connection, { first_name, last_name, email, password, phone_number, address }, ROLES.STUDENT);
  
         // Step 2: Create the student-specific record
-        await connection.query(
-            'INSERT INTO students (user_id, school_id, date_of_birth, enrollment_date, image_profile, status) VALUES (?, ?, ?, ?, ?, ?)',
-            [userId, schoolIdForNewStudent, dob, enrollment, image_profile, status || 'active']
+        const [studentResult] = await connection.query(
+            'INSERT INTO students (user_id, school_id, date_of_birth, enrollment_date, image_profile, status, sex) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            [userId, schoolIdForNewStudent, dob, enrollment, image_profile, status || 'active', gender]
         );
+
+        // Step 3: Assign to class if class_id is provided
+        if (class_id) {
+            await connection.query(
+                'INSERT INTO student_class_map (student_id, class_id) VALUES (?, ?)',
+                [studentResult.insertId, class_id]
+            );
+        }
 
         // Notify the creator
         await connection.query(
@@ -135,7 +146,7 @@ const create = async (req, res, next) => {
         );
 
         await connection.commit();
-        sendSuccess(res, { id: userId, message: 'Student created successfully' }, 201);
+        sendSuccess(res, { id: userId, student_id: studentResult.insertId, message: 'Student created successfully' }, 201);
     } catch (error) {
         await connection.rollback();
         // Handle Duplicate Entry (Email already exists)
@@ -154,7 +165,7 @@ const update = async (req, res, next) => {
     try {
         await connection.beginTransaction();
         const { id } = req.params;
-        const { first_name, last_name, phone_number, address, date_of_birth, enrollment_date, status } = req.body;
+        const { first_name, last_name, phone_number, address, date_of_birth, enrollment_date, status, sex, password } = req.body;
 
         // Handle image upload
         let image_profile = req.body.image_profile;
@@ -165,12 +176,18 @@ const update = async (req, res, next) => {
         // Step 1: Update the generic user details
         await updateUser(connection, id, { first_name, last_name, phone_number, address });
 
+        if (password && password.trim() !== '') {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            await connection.query('UPDATE users SET password = ? WHERE id = ?', [hashedPassword, id]);
+        }
+
         // Step 2: Update the student-specific details
         const studentUpdates = {};
         if (date_of_birth !== undefined) studentUpdates.date_of_birth = date_of_birth;
         if (enrollment_date !== undefined) studentUpdates.enrollment_date = enrollment_date;
         if (image_profile !== undefined) studentUpdates.image_profile = image_profile;
         if (status !== undefined) studentUpdates.status = status;
+        if (sex !== undefined) studentUpdates.sex = sex;
 
         if (Object.keys(studentUpdates).length > 0) {
             await connection.query(
@@ -273,7 +290,7 @@ const getByTeacherId = async (req, res, next) => {
         const query = `
             SELECT DISTINCT
                 u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
-                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status, s.sex,
                 sch.name as school_name
             FROM users u
             JOIN students s ON u.id = s.user_id
@@ -325,7 +342,7 @@ const getByPrincipalId = async (req, res, next) => {
         const query = `
             SELECT 
                 u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address,
-                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status, s.sex,
                 sch.name as school_name
             FROM users u
             JOIN students s ON u.id = s.user_id
@@ -349,7 +366,7 @@ const getMe = async (req, res, next) => {
         const [rows] = await db.query(`
             SELECT 
                 u.id, s.id as student_id, u.first_name, u.last_name, u.email, u.phone_number, u.address, 
-                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status,
+                s.date_of_birth, s.enrollment_date, s.school_id, s.image_profile, s.status, s.sex,
                 sch.name as school_name, sch.logo as school_logo,
                 GROUP_CONCAT(c.name SEPARATOR ', ') as class_names,
                 GROUP_CONCAT(DISTINCT CONCAT(c.id, ':', c.name) SEPARATOR ',') as classes_info
